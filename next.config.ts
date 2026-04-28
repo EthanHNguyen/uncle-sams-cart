@@ -5,7 +5,7 @@ const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: isGitHubPages ? "/rfp-map" : undefined,
+  basePath: isGitHubPages ? "/uncle-sams-cart" : undefined,
   turbopack: {
     root: process.cwd(),
   },

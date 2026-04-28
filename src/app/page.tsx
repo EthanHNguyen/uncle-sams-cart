@@ -106,11 +106,14 @@ export default function Home() {
   const [toast, setToast] = useState("Ready to make the group chat ask questions.");
 
   function increment(key: keyof ShareStats, data: Record<string, string | number> = {}) {
-    setStats((current) => {
-      const next = { ...current, [key]: current[key] + 1 };
+    const current = loadStats();
+    const next = { ...current, [key]: current[key] + 1 };
+    try {
       window.localStorage.setItem("uncle-sams-cart-share-stats", JSON.stringify(next));
-      return next;
-    });
+    } catch {
+      // Local tracking is nice-to-have. It must never break the receipt.
+    }
+    setStats(next);
     sendOptionalBeacon(key, data);
   }
 
@@ -133,9 +136,13 @@ export default function Home() {
   }
 
   async function copyReceipt() {
-    await navigator.clipboard.writeText(receiptText);
+    try {
+      await navigator.clipboard.writeText(receiptText);
+      setToast("Receipt copied. Paste it where people say: wait, this is real?");
+    } catch {
+      setToast("Copy was blocked by the browser, but the receipt click was tracked.");
+    }
     increment("copyReceipt", { count: receiptItems.length });
-    setToast("Receipt copied. Paste it where people say: wait, this is real?");
   }
 
   async function shareReceipt() {
@@ -144,12 +151,16 @@ export default function Home() {
       text: receiptText,
       url: trackingUrl(),
     };
-    if (navigator.share) {
-      await navigator.share(shareData);
-      setToast("Shared the receipt.");
-    } else {
-      await navigator.clipboard.writeText(receiptText);
-      setToast("Native share unavailable, so the receipt was copied instead.");
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        setToast("Shared the receipt.");
+      } else {
+        await navigator.clipboard.writeText(receiptText);
+        setToast("Native share unavailable, so the receipt was copied instead.");
+      }
+    } catch {
+      setToast("Share was canceled or blocked, but the share click was tracked.");
     }
     increment("shareReceipt", { count: receiptItems.length });
   }
@@ -214,7 +225,7 @@ export default function Home() {
                         onClick={() => toggleReceipt(item)}
                         className={`rounded-full px-4 py-3 text-sm font-black transition ${selected ? "bg-[#efe2d2] text-[#1f1a16]" : "bg-[#1f1a16] text-white hover:bg-[#bb1d31]"}`}
                       >
-                        {selected ? "In receipt" : "Add"}
+                        {selected ? "Remove" : "Add to receipt"}
                       </button>
                       <a
                         href={item.url}
@@ -249,6 +260,10 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+            <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono text-xs leading-5 text-[#6b5442]">
+              <p>SOURCE: SAM.gov Contract Opportunities bulk data</p>
+              <p>Generated {formatDate(payload.generatedAt)} · no fabricated prices</p>
+            </div>
             <div className="grid gap-2 py-4">
               <button type="button" onClick={copyReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">
                 Copy receipt
@@ -260,9 +275,9 @@ export default function Home() {
             <div className="rounded-2xl bg-white/75 p-4 text-sm text-[#5d5349]">
               <p className="font-bold text-[#1f1a16]">{toast}</p>
               <div className="mt-3 grid grid-cols-3 gap-2 font-mono text-xs">
-                <span><b className="block text-lg text-[#1f1a16]">{stats.copyReceipt}</b>copies</span>
-                <span><b className="block text-lg text-[#1f1a16]">{stats.shareReceipt}</b>shares</span>
-                <span><b className="block text-lg text-[#1f1a16]">{stats.sourceClicks}</b>sources</span>
+                <span><b id="usc-copy-count" className="block text-lg text-[#1f1a16]">{stats.copyReceipt}</b>copies</span>
+                <span><b id="usc-share-count" className="block text-lg text-[#1f1a16]">{stats.shareReceipt}</b>shares</span>
+                <span><b id="usc-source-count" className="block text-lg text-[#1f1a16]">{stats.sourceClicks}</b>sources</span>
               </div>
               <p className="mt-3 text-xs leading-5">Tracking is local-first for static hosting. Add <code>NEXT_PUBLIC_SHARE_EVENT_URL</code> later for aggregate event collection.</p>
             </div>
