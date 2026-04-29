@@ -2,16 +2,20 @@
   "name": "uncle-sams-cart",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "serve": "npx serve@latest out",
     "lint": "eslint",
+    "test": "node scripts/worker-smoke-test.mjs",
+    "qa": "node scripts/qa-interactions.mjs",
     "ingest:sam": "python3 scripts/ingest-sam.py",
     "build:weird": "python3 scripts/build-weird-items.py",
     "worker:dev": "wrangler dev",
     "worker:deploy": "wrangler deploy",
-    "worker:d1:schema": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/schema.sql"
+    "worker:d1:schema": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/schema.sql",
+    "worker:d1:migrate:analytics": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/migrations/0002_pageview_utm_columns.sql"
   },
   "dependencies": {
     "next": "16.2.4",

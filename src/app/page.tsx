@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import weirdData from "../../public/data/weird-items.json";
 
 type WeirdItem = {
@@ -35,7 +35,7 @@ type WeirdPayload = {
   items: WeirdItem[];
 };
 
-type EventName = "shareReceipt" | "sourceClick";
+type EventName = "pageView" | "shareReceipt" | "sourceClick";
 
 const payload = weirdData as WeirdPayload;
 
@@ -81,16 +81,21 @@ function buildReceipt(items: WeirdItem[]) {
   return lines.join("\n");
 }
 
-function sendOptionalBeacon(eventName: EventName, data: Record<string, string | number> = {}) {
+function currentPathWithUtm() {
+  if (typeof window === "undefined") return "/uncle-sams-cart/";
+  return `${window.location.pathname}${window.location.search}`;
+}
+
+function sendOptionalBeacon(eventName: EventName, data: Record<string, string | number | null> = {}) {
   const endpoint = process.env.NEXT_PUBLIC_SHARE_EVENT_URL;
   if (!endpoint || typeof window === "undefined") return;
-  const body = JSON.stringify({ event: eventName, app: "uncle-sams-cart", ts: new Date().toISOString(), ...data });
+  const body = JSON.stringify({ event: eventName, app: "uncle-sams-cart", ts: new Date().toISOString(), path: currentPathWithUtm(), ...data });
   try {
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon(endpoint, new Blob([body], { type: "application/json" }));
-    } else {
-      void fetch(endpoint, { method: "POST", headers: { "content-type": "application/json" }, body, keepalive: true });
+    const blob = new Blob([body], { type: "application/json" });
+    if (navigator.sendBeacon && navigator.sendBeacon(endpoint, blob)) {
+      return;
     }
+    void fetch(endpoint, { method: "POST", headers: { "content-type": "application/json" }, body, keepalive: true });
   } catch {
     // Tracking must never break the toy.
   }
@@ -100,13 +105,21 @@ export default function Home() {
   const items = useMemo(() => payload.items.slice(0, 5), []);
   const [toast, setToast] = useState("Ready to make the group chat ask who approved this errand.");
 
+  const pageViewSent = useRef(false);
+
+  useEffect(() => {
+    if (pageViewSent.current) return;
+    pageViewSent.current = true;
+    sendOptionalBeacon("pageView");
+  }, []);
+
   const receiptItems = items;
   const receiptText = useMemo(() => buildReceipt(receiptItems), [receiptItems]);
 
   async function shareReceipt() {
     const shareData = {
       title: "Uncle Sam's Cart",
-      text: receiptText,
+      text: `Actual SAM.gov public records, arranged like a checkout receipt because the fish apparently have a federal meal plan.\n\n${receiptText}`,
       url: trackingUrl(),
     };
 
@@ -125,7 +138,7 @@ export default function Home() {
   }
 
   function sourceClicked(item: WeirdItem) {
-    sendOptionalBeacon("sourceClick", { id: item.id, category: item.category });
+    sendOptionalBeacon("sourceClick", { id: item.id, category: itemCategory(item) });
   }
 
   return (

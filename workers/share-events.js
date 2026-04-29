@@ -1,5 +1,6 @@
 const APP = "uncle-sams-cart";
-const ALLOWED_EVENTS = new Set(["shareReceipt", "sourceClick"]);
+const ALLOWED_EVENTS = new Set(["pageView", "shareReceipt", "sourceClick"]);
+const MAX_BODY_BYTES = 4096;
 const ALLOWED_ORIGINS = new Set([
   "https://ethanhn.com",
   "https://ethanhnguyen.github.io",
@@ -36,11 +37,24 @@ const worker = {
       return jsonError("Forbidden origin", 403, cors);
     }
 
+    if (!isJsonRequest(request)) {
+      return jsonError("Unsupported media type", 415, cors);
+    }
+
+    const contentLength = Number.parseInt(request.headers.get("content-length") || "0", 10);
+    if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
+      return jsonError("Payload too large", 413, cors);
+    }
+
     let body;
     try {
-      body = await request.json();
+      const text = await request.text();
+      if (new TextEncoder().encode(text).length > MAX_BODY_BYTES) {
+        return jsonError("Payload too large", 413, cors);
+      }
+      body = JSON.parse(text);
     } catch {
-      return jsonError("Bad JSON", 400, cors);
+      return jsonError("Invalid JSON", 400, cors);
     }
 
     const app = cleanString(body.app, 64);
@@ -57,13 +71,15 @@ const worker = {
     const count = toBoundedInt(body.count, 0, 100);
     const itemId = cleanNullableString(body.id, 128);
     const category = cleanNullableString(body.category, 128);
-    const path = cleanNullableString(request.headers.get("Referer"), 512);
+    const referer = sanitizeAbsoluteUrl(request.headers.get("Referer"), origin);
+    const path = sanitizePath(body.path || request.headers.get("Referer"));
+    const utm = extractUtm(body.path || request.headers.get("Referer"));
 
     await env.DB.prepare(
-      `insert into events (event, app, created_at, count, item_id, category, origin, referer)
-       values (?, ?, ?, ?, ?, ?, ?, ?)`
+      `insert into events (event, app, created_at, count, item_id, category, origin, referer, path, utm_source, utm_medium, utm_campaign)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
-      .bind(event, APP, new Date().toISOString(), count, itemId, category, origin || null, path)
+      .bind(event, APP, new Date().toISOString(), count, itemId, category, origin, referer, path, utm.source, utm.medium, utm.campaign)
       .run();
 
     return Response.json({ ok: true }, { headers: cors });
@@ -73,10 +89,9 @@ const worker = {
 export default worker;
 
 async function summary(request, env, cors) {
-  const url = new URL(request.url);
   const expected = env.SUMMARY_TOKEN;
 
-  if (expected && url.searchParams.get("token") !== expected) {
+  if (expected && bearerToken(request) !== expected) {
     return jsonError("Unauthorized", 401, cors);
   }
 
@@ -97,10 +112,18 @@ async function summary(request, env, cors) {
   ).all();
 
   const recent = await env.DB.prepare(
-    `select event, created_at, item_id, category
+    `select event, created_at, item_id, category, path, utm_source
      from events
      order by id desc
      limit 10`
+  ).all();
+
+  const daily = await env.DB.prepare(
+    `select date(created_at) as day, event, count(*) as total
+     from events
+     group by day, event
+     order by day desc, event
+     limit 30`
   ).all();
 
   return Response.json(
@@ -109,6 +132,7 @@ async function summary(request, env, cors) {
       totals: totals.results || [],
       topSources: topSources.results || [],
       recent: recent.results || [],
+      daily: daily.results || [],
     },
     { headers: cors },
   );
@@ -117,7 +141,7 @@ async function summary(request, env, cors) {
 function corsHeaders(origin) {
   const headers = {
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "content-type",
+    "Access-Control-Allow-Headers": "authorization, content-type",
     "Access-Control-Max-Age": "86400",
     "Vary": "Origin",
   };
@@ -130,7 +154,18 @@ function corsHeaders(origin) {
 }
 
 function isAllowedOrigin(origin) {
-  return !origin || ALLOWED_ORIGINS.has(origin);
+  return Boolean(origin && ALLOWED_ORIGINS.has(origin));
+}
+
+function isJsonRequest(request) {
+  const contentType = request.headers.get("content-type") || "";
+  return contentType.toLowerCase().includes("application/json");
+}
+
+function bearerToken(request) {
+  const authorization = request.headers.get("authorization") || "";
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
+  return match ? match[1] : "";
 }
 
 function jsonError(message, status, headers) {
@@ -151,4 +186,40 @@ function toBoundedInt(value, min, max) {
   const parsed = Number.parseInt(String(value ?? "0"), 10);
   if (!Number.isFinite(parsed)) return min;
   return Math.min(max, Math.max(min, parsed));
+}
+
+function sanitizeAbsoluteUrl(value, allowedOrigin) {
+  if (typeof value !== "string" || !value) return null;
+  try {
+    const url = new URL(value);
+    if (url.origin !== allowedOrigin) return null;
+    return `${url.origin}${url.pathname}`.slice(0, 512);
+  } catch {
+    return null;
+  }
+}
+
+function sanitizePath(value) {
+  if (typeof value !== "string" || !value) return null;
+  try {
+    const url = value.startsWith("http") ? new URL(value) : new URL(value, "https://ethanhn.com");
+    return url.pathname.slice(0, 256);
+  } catch {
+    return null;
+  }
+}
+
+function extractUtm(value) {
+  const empty = { source: null, medium: null, campaign: null };
+  if (typeof value !== "string" || !value) return empty;
+  try {
+    const url = value.startsWith("http") ? new URL(value) : new URL(value, "https://ethanhn.com");
+    return {
+      source: cleanNullableString(url.searchParams.get("utm_source"), 80),
+      medium: cleanNullableString(url.searchParams.get("utm_medium"), 80),
+      campaign: cleanNullableString(url.searchParams.get("utm_campaign"), 120),
+    };
+  } catch {
+    return empty;
+  }
 }

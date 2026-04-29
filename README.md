@@ -15,8 +15,8 @@ It is not a GovCon workflow tool, capture CRM, or waste/outrage dashboard.
 - Receipt Rack UI: warm paper, itemized public records, official SAM.gov source links
 - Deterministic `weird-items.json` generation — no LLM, no fabricated dollar values
 - Native share action and official SAM.gov source links
-- Optional aggregate event endpoint via `NEXT_PUBLIC_SHARE_EVENT_URL` for real tracking
-- Cloudflare Worker + D1 event collector under `workers/` for static-compatible aggregate tracking
+- Optional aggregate event endpoint via `NEXT_PUBLIC_SHARE_EVENT_URL` for page views, source clicks, successful native shares, and UTM attribution
+- Cloudflare Worker + D1 event collector under `workers/` for static-compatible aggregate tracking with origin/content-type checks and sanitized referrers
 
 ## Commands
 
@@ -33,6 +33,8 @@ Worker tracking commands, after Cloudflare auth is configured:
 npx wrangler d1 create uncle-sams-cart-events
 # Paste the returned database_id into wrangler.toml.
 npm run worker:d1:schema
+# Existing DBs that predate pageView/UTM tracking: run once before deploy.
+npm run worker:d1:migrate:analytics
 npm run worker:deploy
 ```
 
