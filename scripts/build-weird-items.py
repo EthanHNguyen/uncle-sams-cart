@@ -80,24 +80,24 @@ STOP_AGENCIES = {"GENERAL SERVICES ADMINISTRATION"}
 
 CURATED_TOP_FIVE = {
     "c6c6db2d4cfc415eb5a1cabf99603bce": (
-        "Army airfield needs a working-dog kennel",
-        "The government is shopping for kennel infrastructure for military working dogs at Hunter Army Airfield.",
+        "Uncle Sam is building barracks for very good boys",
+        "Officially: a military working-dog kennel. Unofficially: base housing for employees who already outrank your Roomba.",
     ),
     "a12c60bafdcf4044bfc27057b3322359": (
-        "Inflatable shallow-water jet boat bundle",
-        "Fish and Wildlife-adjacent procurement, but make it an inflatable jet boat with motor and trailer.",
+        "Add to cart: inflatable jet boat, motor, trailer, probably wetlands chaos",
+        "The federal shopping list has entered its “tiny action movie in shallow water” phase.",
     ),
     "8a6f3c12e20a4120940e4db880fce3aa": (
-        "Deer and goose processing",
-        "A beautifully blunt public-record title: deer, geese, and procurement paperwork.",
+        "Government seeks someone to process deer and geese, extremely calmly",
+        "A procurement title so blunt it sounds like a park ranger lost a bet with a spreadsheet.",
     ),
     "71dc2dab496f4fed90cf2c9d78e215b8": (
-        "National fish food purchase",
-        "Somewhere in the federal machine, the fish food line item is real.",
+        "National fish food order, because the fish have a government meal plan",
+        "Somewhere, a federal fish is eating better-documented food than you are.",
     ),
-    "ef250615bdaf4e5a9cd0f4f7ffd1503b": (
-        "National forest vault toilet pumping",
-        "The outdoors are majestic. The maintenance contracts are specific.",
+    "2a18813a26194d00ac6195887ef04cc9": (
+        "Forest toilets require a contractor with courage and a pump truck",
+        "The national parks are beautiful because someone, somewhere, bid on this sentence.",
     ),
 }
 

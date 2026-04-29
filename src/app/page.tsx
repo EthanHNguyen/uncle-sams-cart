@@ -34,14 +34,9 @@ type WeirdPayload = {
   items: WeirdItem[];
 };
 
-type ShareStats = {
-  copyReceipt: number;
-  shareReceipt: number;
-  sourceClicks: number;
-};
+type EventName = "shareReceipt" | "sourceClick";
 
 const payload = weirdData as WeirdPayload;
-const initialStats: ShareStats = { copyReceipt: 0, shareReceipt: 0, sourceClicks: 0 };
 
 function formatDate(value: string) {
   const timestamp = Date.parse(value);
@@ -69,7 +64,7 @@ function trackingUrl() {
 function buildReceipt(items: WeirdItem[]) {
   const lines = [
     "UNCLE SAM'S CART",
-    "Real public records. Weird public demand.",
+    "Real records. Unusual errands.",
     "",
     ...items.map((item, index) => {
       return `${String(index + 1).padStart(2, "0")}. ${itemTitle(item)}\n    ${item.agency} · ${item.category}\n    Why weird: ${shortReason(item)}\n    Official title: ${item.officialTitle ?? item.title}\n    Source: ${item.url}`;
@@ -81,17 +76,7 @@ function buildReceipt(items: WeirdItem[]) {
   return lines.join("\n");
 }
 
-function loadStats(): ShareStats {
-  if (typeof window === "undefined") return initialStats;
-  try {
-    const raw = window.localStorage.getItem("uncle-sams-cart-share-stats");
-    return raw ? { ...initialStats, ...JSON.parse(raw) } : initialStats;
-  } catch {
-    return initialStats;
-  }
-}
-
-function sendOptionalBeacon(eventName: keyof ShareStats, data: Record<string, string | number> = {}) {
+function sendOptionalBeacon(eventName: EventName, data: Record<string, string | number> = {}) {
   const endpoint = process.env.NEXT_PUBLIC_SHARE_EVENT_URL;
   if (!endpoint || typeof window === "undefined") return;
   const body = JSON.stringify({ event: eventName, app: "uncle-sams-cart", ts: new Date().toISOString(), ...data });
@@ -108,56 +93,34 @@ function sendOptionalBeacon(eventName: keyof ShareStats, data: Record<string, st
 
 export default function Home() {
   const items = useMemo(() => payload.items.slice(0, 5), []);
-  const [stats, setStats] = useState<ShareStats>(() => loadStats());
   const [toast, setToast] = useState("Ready to make the group chat ask questions.");
-
-  function increment(key: keyof ShareStats, data: Record<string, string | number> = {}) {
-    const current = loadStats();
-    const next = { ...current, [key]: current[key] + 1 };
-    try {
-      window.localStorage.setItem("uncle-sams-cart-share-stats", JSON.stringify(next));
-    } catch {
-      // Local tracking is nice-to-have. It must never break the receipt.
-    }
-    setStats(next);
-    sendOptionalBeacon(key, data);
-  }
 
   const receiptItems = items;
   const receiptText = useMemo(() => buildReceipt(receiptItems), [receiptItems]);
 
-  async function copyReceipt() {
-    increment("copyReceipt", { count: receiptItems.length });
-    try {
-      await navigator.clipboard.writeText(receiptText);
-      setToast("Top 5 copied. Paste it where people say: wait, this is real?");
-    } catch {
-      setToast("Copy was blocked by the browser, but the receipt click was tracked.");
-    }
-  }
-
   async function shareReceipt() {
-    increment("shareReceipt", { count: receiptItems.length });
     const shareData = {
       title: "Uncle Sam's Cart",
       text: receiptText,
       url: trackingUrl(),
     };
+
+    if (!navigator.share) {
+      setToast("Your browser does not support native sharing. The receipt remains weird and fully source-linked.");
+      return;
+    }
+
     try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-        setToast("Shared the receipt.");
-      } else {
-        await navigator.clipboard.writeText(receiptText);
-        setToast("Native share unavailable, so the receipt was copied instead.");
-      }
+      await navigator.share(shareData);
+      sendOptionalBeacon("shareReceipt", { count: receiptItems.length });
+      setToast("Shared. Democracy has entered the group chat.");
     } catch {
-      setToast("Share was canceled or blocked, but the share click was tracked.");
+      setToast("Share canceled. No victory lap, no phantom counter.");
     }
   }
 
   function sourceClicked(item: WeirdItem) {
-    increment("sourceClicks", { id: item.id, category: item.category });
+    sendOptionalBeacon("sourceClick", { id: item.id, category: item.category });
   }
 
   return (
@@ -173,10 +136,10 @@ export default function Home() {
             <div>
               <p className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-[#8a6b51]">Uncle Sam&apos;s Cart · Today&apos;s receipt</p>
               <h1 className="mt-3 max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.08em] text-[#1f1a16] sm:text-7xl lg:text-8xl">
-                Uncle Sam’s weirdest shopping list.
+                The government went shopping. It got weird.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-[#66574b]">
-                See the weirdest things Uncle Sam is shopping for — all backed by real open contracts on SAM.gov.
+                Real government contract notices from SAM.gov, served as a receipt because public records deserve better jokes.
               </p>
             </div>
             <aside className="rounded-3xl border border-dashed border-[#b7a891] bg-white/70 p-5 font-mono text-sm text-[#4f4339]">
@@ -231,7 +194,7 @@ export default function Home() {
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a6b51]">Today’s top 5</p>
               <h2 className="mt-2 text-3xl font-black tracking-[-0.07em]">UNCLE SAM&apos;S CART</h2>
-              <p className="mt-1 text-sm text-[#6b5442]">Real public records. Weird public demand.</p>
+              <p className="mt-1 text-sm text-[#6b5442]">Real public records. Deeply normal democracy.</p>
             </div>
             <ol className="max-h-[46vh] space-y-3 overflow-auto border-b border-dashed border-[#b7a891] py-4 pr-1 font-mono text-sm">
               {receiptItems.map((item, index) => (
@@ -246,24 +209,16 @@ export default function Home() {
             </ol>
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono text-xs leading-5 text-[#6b5442]">
               <p>SOURCE: SAM.gov Contract Opportunities bulk data</p>
-              <p>Generated {formatDate(payload.generatedAt)} · no prices invented</p>
+              <p>Generated {formatDate(payload.generatedAt)} · prices left to the paperwork</p>
             </div>
             <div className="grid gap-2 py-4">
-              <button type="button" onClick={copyReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">
-                Copy receipt
-              </button>
-              <button type="button" onClick={shareReceipt} className="rounded-full bg-[#e7d8c5] px-4 py-3 font-black text-[#1f1a16] hover:bg-[#dcc7ad]">
+              <button type="button" onClick={shareReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">
                 Share receipt
               </button>
             </div>
             <div className="rounded-2xl bg-white/75 p-4 text-sm text-[#5d5349]">
               <p className="font-bold text-[#1f1a16]">{toast}</p>
-              <div className="mt-3 grid grid-cols-3 gap-2 font-mono text-xs">
-                <span><b id="usc-copy-count" className="block text-lg text-[#1f1a16]">{stats.copyReceipt}</b>copies</span>
-                <span><b id="usc-share-count" className="block text-lg text-[#1f1a16]">{stats.shareReceipt}</b>shares</span>
-                <span><b id="usc-source-count" className="block text-lg text-[#1f1a16]">{stats.sourceClicks}</b>sources</span>
-              </div>
-              <p className="mt-3 text-xs leading-5">Tracking is local-first for static hosting. Add <code>NEXT_PUBLIC_SHARE_EVENT_URL</code> later for aggregate event collection.</p>
+              <p className="mt-3 text-xs leading-5">If the share sheet closes, nothing happened. Very advanced technology.</p>
             </div>
           </aside>
         </section>

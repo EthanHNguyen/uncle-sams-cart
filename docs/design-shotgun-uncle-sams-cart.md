@@ -22,12 +22,12 @@ The target reaction:
 
 ### A. Receipt Rack — selected
 
-**Metaphor:** fake checkout receipt for real public records.
+**Metaphor:** checkout receipt for real public records.
 
 - Warm receipt paper.
 - Monospace line items.
 - “UNCLE SAM'S CART · TODAY'S RECEIPT.”
-- Clear actions: Copy receipt, Share receipt.
+- Clear action: Share receipt.
 - Best screenshot shape for social/group chats.
 
 Why this wins: the product name and the interaction finally collapse into one thing. The receipt is both the UI and the viral object.
