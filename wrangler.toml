@@ -5,4 +5,4 @@ compatibility_date = "2026-04-28"
 [[d1_databases]]
 binding = "DB"
 database_name = "uncle-sams-cart-events"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "15727984-d61c-4df3-979d-f51bcfdadd3f"
