@@ -3,41 +3,8 @@
   "generatedAt": "2026-04-27T23:57:30.349802+00:00",
   "totalRows": 73946,
   "activeRows": 73946,
-  "method": "deterministic-keyword-scoring-no-llm-no-prices",
+  "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
   "items": [
-    {
-      "id": "7bd8f918d1cc4505bab579d233a9711f",
-      "title": "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NATIONAL CEMETERY ADMIN (36C786)",
-      "noticeType": "Sources Sought",
-      "postedDate": "2026-03-19 15:51:15.003-04",
-      "responseDeadline": "2026-03-27",
-      "placeOfPerformance": "Phoenix, AZ, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/7bd8f918d1cc4505bab579d233a9711f/view",
-      "category": "Ceremony Department",
-      "weirdnessScore": 191,
-      "absurdityBadges": [
-        "Ceremony Department",
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "ceremony",
-        "memorial",
-        "chairs",
-        "toilets",
-        "cemetery"
-      ],
-      "weirdnessReasons": [
-        "ceremony department signal: ceremony, memorial",
-        "oddly specific object signal: chairs, toilets",
-        "government vibe signal: cemetery"
-      ],
-      "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
     {
       "id": "c6c6db2d4cfc415eb5a1cabf99603bce",
       "title": "Military Working Dog Kennel Hunter Army Airfield, Savannah, Georgia",
@@ -68,7 +35,10 @@
         "oddly specific object signal: sign",
         "government vibe signal: airfield"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "officialTitle": "Military Working Dog Kennel Hunter Army Airfield, Savannah, Georgia",
+      "displayTitle": "Army airfield needs a working-dog kennel",
+      "punchline": "The government is shopping for kennel infrastructure for military working dogs at Hunter Army Airfield."
     },
     {
       "id": "a12c60bafdcf4044bfc27057b3322359",
@@ -99,95 +69,10 @@
         "oddly specific object signal: boat",
         "federal procurement language around a surprisingly concrete object"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "61a2e87746814da1a5ca84204d629655",
-      "title": "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs",
-      "agency": "Agriculture",
-      "agencyFull": "AGRICULTURE, DEPARTMENT OF",
-      "office": "USDA AMS 3J14",
-      "noticeType": "Combined Synopsis/Solicitation",
-      "postedDate": "2026-04-23 14:03:32.035-04",
-      "responseDeadline": "2026-05-08T13:00:00-05:00",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/61a2e87746814da1a5ca84204d629655/view",
-      "category": "Tactical Snack",
-      "weirdnessScore": 180,
-      "absurdityBadges": [
-        "Tactical Snack"
-      ],
-      "matchedTerms": [
-        "beef",
-        "pork",
-        "chicken"
-      ],
-      "weirdnessReasons": [
-        "tactical snack signal: beef, pork, chicken",
-        "federal procurement language around a surprisingly concrete object",
-        "very specific public-record title"
-      ],
-      "plainEnglish": "It reads like tactical snack inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "97f32b6761dc450d87096ebb566a2da3",
-      "title": "Cattle Feed Rations El Reno, OK",
-      "agency": "Agriculture",
-      "agencyFull": "AGRICULTURE, DEPARTMENT OF",
-      "office": "AGRICULTURAL RESEARCH SERVICE",
-      "noticeType": "Special Notice",
-      "postedDate": "2026-03-31 11:08:20.928-04",
-      "responseDeadline": "2026-04-14T09:00:00-04:00",
-      "placeOfPerformance": "El Reno, OK, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/97f32b6761dc450d87096ebb566a2da3/view",
-      "category": "Animal Logistics",
-      "weirdnessScore": 170,
-      "absurdityBadges": [
-        "Animal Logistics",
-        "Tactical Snack"
-      ],
-      "matchedTerms": [
-        "cattle",
-        "livestock",
-        "rations"
-      ],
-      "weirdnessReasons": [
-        "animal logistics signal: cattle, livestock",
-        "tactical snack signal: rations",
-        "federal procurement language around a surprisingly concrete object"
-      ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "2310dc2ac6924224ba641b324f3b6a8a",
-      "title": "SPE3S1-26-R-0005 - Rations National Contract (RNC) Bakery Items for MRE Assembly",
-      "agency": "Defense",
-      "agencyFull": "DEPT OF DEFENSE",
-      "office": "DLA TROOP SUPPORT",
-      "noticeType": "Presolicitation",
-      "postedDate": "2026-04-07 08:34:04.207-04",
-      "responseDeadline": "2026-04-15T15:00:00-04:00",
-      "placeOfPerformance": "Philadelphia, PA, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/2310dc2ac6924224ba641b324f3b6a8a/view",
-      "category": "Tactical Snack",
-      "weirdnessScore": 169,
-      "absurdityBadges": [
-        "Tactical Snack"
-      ],
-      "matchedTerms": [
-        "rations",
-        "cookie",
-        "bakery"
-      ],
-      "weirdnessReasons": [
-        "tactical snack signal: rations, cookie, bakery",
-        "federal procurement language around a surprisingly concrete object",
-        "specific quantity or model number in the title"
-      ],
-      "plainEnglish": "It reads like tactical snack inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "officialTitle": "Inflatable Shallow-Water Jet Boat, Motor, and Trailer",
+      "displayTitle": "Inflatable shallow-water jet boat bundle",
+      "punchline": "Fish and Wildlife-adjacent procurement, but make it an inflatable jet boat with motor and trailer."
     },
     {
       "id": "8a6f3c12e20a4120940e4db880fce3aa",
@@ -216,7 +101,10 @@
         "animal logistics signal: goose, deer",
         "tactical snack signal: meat"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "officialTitle": "Deer and Goose Processing",
+      "displayTitle": "Deer and goose processing",
+      "punchline": "A beautifully blunt public-record title: deer, geese, and procurement paperwork."
     },
     {
       "id": "71dc2dab496f4fed90cf2c9d78e215b8",
@@ -245,399 +133,10 @@
         "animal logistics signal: fish, salmon",
         "tactical snack signal: fish food"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "f0656648f84f43538748c75f60e900de",
-      "title": "Z--GAOA - National Elk Refuge Electrical Repairs",
-      "agency": "Interior",
-      "agencyFull": "INTERIOR, DEPARTMENT OF THE",
-      "office": "FWS, GAOA",
-      "noticeType": "Presolicitation",
-      "postedDate": "2026-03-23 08:55:03.789-04",
-      "responseDeadline": "2026-05-11T17:00:00-04:00",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/f0656648f84f43538748c75f60e900de/view",
-      "category": "Animal Logistics",
-      "weirdnessScore": 154,
-      "absurdityBadges": [
-        "Animal Logistics"
-      ],
-      "matchedTerms": [
-        "fish",
-        "wildlife",
-        "elk"
-      ],
-      "weirdnessReasons": [
-        "animal logistics signal: fish, wildlife, elk",
-        "federal procurement language around a surprisingly concrete object"
-      ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "d1a9453b2951469bb83a3991b51ced07",
-      "title": "36C78626Q50139 Memorial Day Rentals - NMCA -- W071",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NATIONAL CEMETERY ADMIN (36C786)",
-      "noticeType": "Solicitation",
-      "postedDate": "2026-04-15 16:41:48.105-04",
-      "responseDeadline": "2026-04-20T12:00:00+00:00",
-      "placeOfPerformance": "Phoenix, AZ, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/d1a9453b2951469bb83a3991b51ced07/view",
-      "category": "Ceremony Department",
-      "weirdnessScore": 150,
-      "absurdityBadges": [
-        "Ceremony Department",
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "ceremony",
-        "memorial",
-        "chairs",
-        "toilets",
-        "cemetery"
-      ],
-      "weirdnessReasons": [
-        "ceremony department signal: ceremony, memorial",
-        "oddly specific object signal: chairs, toilets",
-        "government vibe signal: cemetery"
-      ],
-      "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "4ec4356c90104c4ab55aae2e0a4f35c8",
-      "title": "Combined Solicitation Crown Hill National Cemetery Tent and Chairs Rentals",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NATIONAL CEMETERY ADMIN (36C786)",
-      "noticeType": "Combined Synopsis/Solicitation",
-      "postedDate": "2026-04-22 09:44:51.669-04",
-      "responseDeadline": "2026-04-24T16:00:00-04:00",
-      "placeOfPerformance": "Indianapolis, IN, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/4ec4356c90104c4ab55aae2e0a4f35c8/view",
-      "category": "Ceremony Department",
-      "weirdnessScore": 150,
-      "absurdityBadges": [
-        "Ceremony Department",
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "ceremony",
-        "memorial",
-        "chairs",
-        "cemetery"
-      ],
-      "weirdnessReasons": [
-        "ceremony department signal: ceremony, memorial",
-        "oddly specific object signal: chairs",
-        "government vibe signal: cemetery"
-      ],
-      "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "657d60d0cb8e4ee7ab59dbc997820bf8",
-      "title": "Sources Sought Crown Hill National Cemetery Tent and Chairs Rentals",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NATIONAL CEMETERY ADMIN (36C786)",
-      "noticeType": "Sources Sought",
-      "postedDate": "2026-04-08 10:15:23.034-04",
-      "responseDeadline": "2026-04-13T16:00:00-04:00",
-      "placeOfPerformance": "Indianapolis, IN, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/657d60d0cb8e4ee7ab59dbc997820bf8/view",
-      "category": "Ceremony Department",
-      "weirdnessScore": 150,
-      "absurdityBadges": [
-        "Ceremony Department",
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "ceremony",
-        "memorial",
-        "chairs",
-        "cemetery"
-      ],
-      "weirdnessReasons": [
-        "ceremony department signal: ceremony, memorial",
-        "oddly specific object signal: chairs",
-        "government vibe signal: cemetery"
-      ],
-      "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "54bd77b77fd141a29f419147ba4d7d08",
-      "title": "Official USDA 840 LF RFID ID tags approved for cattle and bison",
-      "agency": "Agriculture",
-      "agencyFull": "AGRICULTURE, DEPARTMENT OF",
-      "office": "MRPBS MINNEAPOLIS MN",
-      "noticeType": "Combined Synopsis/Solicitation",
-      "postedDate": "2026-04-23 17:35:06.381-04",
-      "responseDeadline": "2026-05-01T11:00:00-05:00",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/54bd77b77fd141a29f419147ba4d7d08/view",
-      "category": "Animal Logistics",
-      "weirdnessScore": 145,
-      "absurdityBadges": [
-        "Animal Logistics"
-      ],
-      "matchedTerms": [
-        "bison",
-        "cattle"
-      ],
-      "weirdnessReasons": [
-        "animal logistics signal: bison, cattle",
-        "federal procurement language around a surprisingly concrete object",
-        "specific quantity or model number in the title"
-      ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "43357dd201ab4e2da10a8e092260b536",
-      "title": "The Contractor shall furnish all personnel, equipment, supplies, materials, vehicles and other items / services necessary and incident to the provision NON-HAZARDOUS WASTE (TRASH) COLLECTION & DISPOSA -- S205",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NATIONAL CEMETERY ADMIN (36C786)",
-      "noticeType": "Combined Synopsis/Solicitation",
-      "postedDate": "2023-11-30 13:02:59.657-05",
-      "responseDeadline": "2023-12-13T00:00:00-05:00",
-      "placeOfPerformance": "Baltimore, MD, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/43357dd201ab4e2da10a8e092260b536/view",
-      "category": "Oddly Specific Object",
-      "weirdnessScore": 145,
-      "absurdityBadges": [
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "dumpster",
-        "trash",
-        "waste",
-        "cemetery"
-      ],
-      "weirdnessReasons": [
-        "oddly specific object signal: dumpster, trash, waste",
-        "government vibe signal: cemetery",
-        "very specific public-record title"
-      ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "2cd2f0888370430699bdbc4eed332f3d",
-      "title": "Z--Notice of Intent to Award Sole Source for U.S. Fish and Wildlife Service (FWS)",
-      "agency": "Interior",
-      "agencyFull": "INTERIOR, DEPARTMENT OF THE",
-      "office": "FWS, SAT TEAM 2",
-      "noticeType": "Special Notice",
-      "postedDate": "2026-04-14 14:29:52.949-04",
-      "responseDeadline": "2026-04-28T17:00:00-04:00",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/2cd2f0888370430699bdbc4eed332f3d/view",
-      "category": "Animal Logistics",
-      "weirdnessScore": 143,
-      "absurdityBadges": [
-        "Animal Logistics"
-      ],
-      "matchedTerms": [
-        "fish",
-        "wildlife"
-      ],
-      "weirdnessReasons": [
-        "animal logistics signal: fish, wildlife",
-        "federal procurement language around a surprisingly concrete object",
-        "very specific public-record title"
-      ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "605ac5556df147f792218a96b18303cc",
-      "title": "US Forest Service Fish Creek and Spring Bar Boat Ramps",
-      "agency": "Defense",
-      "agencyFull": "DEPT OF DEFENSE",
-      "office": "US ARMY ENGINEER DISTRICT WALLA WAL",
-      "noticeType": "Sources Sought",
-      "postedDate": "2026-04-23 12:25:15.731-04",
-      "responseDeadline": "2026-05-05T15:00:00-07:00",
-      "placeOfPerformance": "ID, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/605ac5556df147f792218a96b18303cc/view",
-      "category": "Animal Logistics",
-      "weirdnessScore": 142,
-      "absurdityBadges": [
-        "Animal Logistics",
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "fish",
-        "boat",
-        "forest"
-      ],
-      "weirdnessReasons": [
-        "animal logistics signal: fish",
-        "oddly specific object signal: boat",
-        "government vibe signal: forest"
-      ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "a48619a036fe4d74b585c928f469a95f",
-      "title": "Ground Radar & Drone Detector",
-      "agency": "Interior",
-      "agencyFull": "INTERIOR, DEPARTMENT OF THE",
-      "office": "MWR OHIO(64000)",
-      "noticeType": "Justification",
-      "postedDate": "2026-04-09 14:04:04.59-04",
-      "responseDeadline": "2026-09-30",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/a48619a036fe4d74b585c928f469a95f/view",
-      "category": "Science Project",
-      "weirdnessScore": 140,
-      "absurdityBadges": [
-        "Ceremony Department",
-        "Government Vibe",
-        "Science Project"
-      ],
-      "matchedTerms": [
-        "memorial",
-        "national park",
-        "radar",
-        "drone"
-      ],
-      "weirdnessReasons": [
-        "ceremony department signal: memorial",
-        "government vibe signal: national park",
-        "science project signal: radar, drone"
-      ],
-      "plainEnglish": "It reads like science project inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "22ba84f3693a455fa7fe8d8b26171a11",
-      "title": "Request for Information (RFI) for Fresh Bread & Bakery Products support for DLA Troop Support to military customers in the Alabama Zone",
-      "agency": "Defense",
-      "agencyFull": "DEPT OF DEFENSE",
-      "office": "DLA TROOP SUPPORT",
-      "noticeType": "Sources Sought",
-      "postedDate": "2026-04-06 14:56:10.28-04",
-      "responseDeadline": "2026-04-21T15:00:00-04:00",
-      "placeOfPerformance": "AL, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/22ba84f3693a455fa7fe8d8b26171a11/view",
-      "category": "Tactical Snack",
-      "weirdnessScore": 139,
-      "absurdityBadges": [
-        "Tactical Snack"
-      ],
-      "matchedTerms": [
-        "bakery",
-        "bread"
-      ],
-      "weirdnessReasons": [
-        "tactical snack signal: bakery, bread",
-        "federal procurement language around a surprisingly concrete object",
-        "very specific public-record title"
-      ],
-      "plainEnglish": "It reads like tactical snack inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "6f2a0e1a8d0340179e65f7b7ee655cb0",
-      "title": "The Dalles Sluiceway Intake Gate Custom Built Moter, Notice of Intent to Sole Source",
-      "agency": "Defense",
-      "agencyFull": "DEPT OF DEFENSE",
-      "office": "W071 ENDIST PORTLAND",
-      "noticeType": "Special Notice",
-      "postedDate": "2026-04-20 15:34:02.788-04",
-      "responseDeadline": "2026-05-04T10:00:00-07:00",
-      "placeOfPerformance": "The Dalles, OR, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/6f2a0e1a8d0340179e65f7b7ee655cb0/view",
-      "category": "Oddly Specific Object",
-      "weirdnessScore": 136,
-      "absurdityBadges": [
-        "Oddly Specific Object"
-      ],
-      "matchedTerms": [
-        "gate",
-        "gates",
-        "trash"
-      ],
-      "weirdnessReasons": [
-        "oddly specific object signal: gate, gates, trash",
-        "federal procurement language around a surprisingly concrete object",
-        "very specific public-record title"
-      ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "c5ff9bb9330d41cf8486ebf97133fc22",
-      "title": "CSS#-88781-Repair Dumpster Enclosure, MEP Gate and Fence Bellefonte PA",
-      "agency": "Defense",
-      "agencyFull": "DEPT OF DEFENSE",
-      "office": "W6QK ACC-PICA",
-      "noticeType": "Solicitation",
-      "postedDate": "2025-05-15 16:07:50.758-04",
-      "responseDeadline": "2025-06-16T14:00:00-04:00",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/c5ff9bb9330d41cf8486ebf97133fc22/view",
-      "category": "Oddly Specific Object",
-      "weirdnessScore": 135,
-      "absurdityBadges": [
-        "Oddly Specific Object"
-      ],
-      "matchedTerms": [
-        "fence",
-        "gate",
-        "dumpster"
-      ],
-      "weirdnessReasons": [
-        "oddly specific object signal: fence, gate, dumpster",
-        "federal procurement language around a surprisingly concrete object",
-        "specific quantity or model number in the title"
-      ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "31c665ca62f74f8b99852bc636ae51d7",
-      "title": "Portable Toilet Rentals McKenzie Ranger District",
-      "agency": "Agriculture",
-      "agencyFull": "AGRICULTURE, DEPARTMENT OF",
-      "office": "ROGUE RIVER-SISKIYOU NATL FOREST",
-      "noticeType": "Combined Synopsis/Solicitation",
-      "postedDate": "2026-04-21 14:37:40.783-04",
-      "responseDeadline": "2026-04-28T12:00:00-07:00",
-      "placeOfPerformance": "McKenzie Bridge, OR, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/31c665ca62f74f8b99852bc636ae51d7/view",
-      "category": "Oddly Specific Object",
-      "weirdnessScore": 134,
-      "absurdityBadges": [
-        "Oddly Specific Object",
-        "Government Vibe"
-      ],
-      "matchedTerms": [
-        "toilet",
-        "toilets",
-        "portable toilet",
-        "forest"
-      ],
-      "weirdnessReasons": [
-        "oddly specific object signal: toilet, toilets, portable toilet",
-        "government vibe signal: forest",
-        "federal procurement language around a surprisingly concrete object"
-      ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "officialTitle": "NATL FISH FOOD BPA CALL",
+      "displayTitle": "National fish food purchase",
+      "punchline": "Somewhere in the federal machine, the fish food line item is real."
     },
     {
       "id": "2a18813a26194d00ac6195887ef04cc9",
@@ -667,64 +166,10 @@
         "oddly specific object signal: toilet, toilets",
         "government vibe signal: vault, forest"
       ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "77009ae685a14cf3b18f937eecf0a00e",
-      "title": "4110--Laboratory Refrigerator & Freezers (VA-26-00035725)",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NETWORK CONTRACT OFFICE 23 (36C263)",
-      "noticeType": "Award Notice",
-      "postedDate": "2026-04-22 14:45:39.343-04",
-      "responseDeadline": "2026-07-30",
-      "placeOfPerformance": "Unknown",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/77009ae685a14cf3b18f937eecf0a00e/view",
-      "category": "Oddly Specific Object",
-      "weirdnessScore": 132,
-      "absurdityBadges": [
-        "Oddly Specific Object",
-        "Science Project"
-      ],
-      "matchedTerms": [
-        "freezers",
-        "refrigerator",
-        "laboratory"
-      ],
-      "weirdnessReasons": [
-        "oddly specific object signal: freezers, refrigerator",
-        "science project signal: laboratory",
-        "specific quantity or model number in the title"
-      ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
-    },
-    {
-      "id": "75549c0e6b1c440ba29f8faa3fd3e0a0",
-      "title": "BREAD AND BAKERY PRODUCTS FOR ST. CLOUD",
-      "agency": "Veterans Affairs",
-      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
-      "office": "NETWORK CONTRACT OFFICE 23 (36C263)",
-      "noticeType": "Sources Sought",
-      "postedDate": "2026-04-09 11:51:49.641-04",
-      "responseDeadline": "2026-04-22T10:00:00-04:00",
-      "placeOfPerformance": "Saint Cloud, MN, USA",
-      "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/75549c0e6b1c440ba29f8faa3fd3e0a0/view",
-      "category": "Tactical Snack",
-      "weirdnessScore": 132,
-      "absurdityBadges": [
-        "Tactical Snack"
-      ],
-      "matchedTerms": [
-        "bakery",
-        "bread"
-      ],
-      "weirdnessReasons": [
-        "tactical snack signal: bakery, bread",
-        "federal procurement language around a surprisingly concrete object"
-      ],
-      "plainEnglish": "It reads like tactical snack inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "officialTitle": "Superior National Forest Vault Toilet Pumping",
+      "displayTitle": "National forest vault toilet pumping",
+      "punchline": "The outdoors are majestic. The maintenance contracts are specific."
     }
   ]
 }

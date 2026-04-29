@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Uncle Sam's Cart | Weird Government Buys",
-  description: "A source-linked receipt of the weirdest things Uncle Sam is shopping for today. Real public records. Weird carts.",
+  description: "See the weirdest things Uncle Sam is shopping for — all backed by real open contracts on SAM.gov.",
   openGraph: {
     title: "Uncle Sam's Cart",
-    description: "Real public records. Weird carts.",
+    description: "Source-linked public records from SAM.gov.",
     type: "website",
   },
 };

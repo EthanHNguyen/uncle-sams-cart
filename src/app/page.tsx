@@ -6,6 +6,9 @@ import weirdData from "../../public/data/weird-items.json";
 type WeirdItem = {
   id: string;
   title: string;
+  displayTitle?: string;
+  officialTitle?: string;
+  punchline?: string;
   agency: string;
   agencyFull: string;
   office: string;
@@ -46,8 +49,12 @@ function formatDate(value: string) {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(timestamp));
 }
 
+function itemTitle(item: WeirdItem) {
+  return item.displayTitle ?? item.title;
+}
+
 function shortReason(item: WeirdItem) {
-  return item.weirdnessReasons[0]?.replace(/ signal:/, ":") ?? item.plainEnglish;
+  return item.punchline ?? item.weirdnessReasons[0]?.replace(/ signal:/, ":") ?? item.plainEnglish;
 }
 
 function trackingUrl() {
@@ -62,10 +69,10 @@ function trackingUrl() {
 function buildReceipt(items: WeirdItem[]) {
   const lines = [
     "UNCLE SAM'S CART",
-    "Real public records. Weird carts.",
+    "Real public records. Weird public demand.",
     "",
     ...items.map((item, index) => {
-      return `${String(index + 1).padStart(2, "0")}. ${item.title}\n    ${item.agency} · ${item.category}\n    Why weird: ${shortReason(item)}\n    Source: ${item.url}`;
+      return `${String(index + 1).padStart(2, "0")}. ${itemTitle(item)}\n    ${item.agency} · ${item.category}\n    Why weird: ${shortReason(item)}\n    Official title: ${item.officialTitle ?? item.title}\n    Source: ${item.url}`;
     }),
     "",
     `Sources: SAM.gov bulk Contract Opportunities · ${payload.activeRows.toLocaleString()} public records scanned`,
@@ -84,7 +91,7 @@ function loadStats(): ShareStats {
   }
 }
 
-function sendOptionalBeacon(eventName: keyof ShareStats | "addToReceipt", data: Record<string, string | number> = {}) {
+function sendOptionalBeacon(eventName: keyof ShareStats, data: Record<string, string | number> = {}) {
   const endpoint = process.env.NEXT_PUBLIC_SHARE_EVENT_URL;
   if (!endpoint || typeof window === "undefined") return;
   const body = JSON.stringify({ event: eventName, app: "uncle-sams-cart", ts: new Date().toISOString(), ...data });
@@ -100,8 +107,7 @@ function sendOptionalBeacon(eventName: keyof ShareStats | "addToReceipt", data: 
 }
 
 export default function Home() {
-  const items = useMemo(() => payload.items.slice(0, 18), []);
-  const [receiptIds, setReceiptIds] = useState<string[]>(() => items.slice(0, 8).map((item) => item.id));
+  const items = useMemo(() => payload.items.slice(0, 5), []);
   const [stats, setStats] = useState<ShareStats>(() => loadStats());
   const [toast, setToast] = useState("Ready to make the group chat ask questions.");
 
@@ -117,35 +123,21 @@ export default function Home() {
     sendOptionalBeacon(key, data);
   }
 
-  const receiptItems = useMemo(() => {
-    const selected = new Set(receiptIds);
-    return items.filter((item) => selected.has(item.id));
-  }, [items, receiptIds]);
-
+  const receiptItems = items;
   const receiptText = useMemo(() => buildReceipt(receiptItems), [receiptItems]);
 
-  function toggleReceipt(item: WeirdItem) {
-    setReceiptIds((current) => {
-      const next = current.includes(item.id) ? current.filter((id) => id !== item.id) : [...current, item.id];
-      return next;
-    });
-    if (!receiptIds.includes(item.id)) {
-      sendOptionalBeacon("addToReceipt", { id: item.id, category: item.category });
-      setToast(`Added to receipt: ${item.title}`);
-    }
-  }
-
   async function copyReceipt() {
+    increment("copyReceipt", { count: receiptItems.length });
     try {
       await navigator.clipboard.writeText(receiptText);
-      setToast("Receipt copied. Paste it where people say: wait, this is real?");
+      setToast("Top 5 copied. Paste it where people say: wait, this is real?");
     } catch {
       setToast("Copy was blocked by the browser, but the receipt click was tracked.");
     }
-    increment("copyReceipt", { count: receiptItems.length });
   }
 
   async function shareReceipt() {
+    increment("shareReceipt", { count: receiptItems.length });
     const shareData = {
       title: "Uncle Sam's Cart",
       text: receiptText,
@@ -162,7 +154,6 @@ export default function Home() {
     } catch {
       setToast("Share was canceled or blocked, but the share click was tracked.");
     }
-    increment("shareReceipt", { count: receiptItems.length });
   }
 
   function sourceClicked(item: WeirdItem) {
@@ -182,10 +173,10 @@ export default function Home() {
             <div>
               <p className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-[#8a6b51]">Uncle Sam&apos;s Cart · Today&apos;s receipt</p>
               <h1 className="mt-3 max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.08em] text-[#1f1a16] sm:text-7xl lg:text-8xl">
-                Real records. Weird carts.
+                Uncle Sam’s weirdest shopping list.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-[#66574b]">
-                A fake shopping receipt for the weirdest things Uncle Sam is shopping for today. Funny first, source-linked always.
+                See the weirdest things Uncle Sam is shopping for — all backed by real open contracts on SAM.gov.
               </p>
             </div>
             <aside className="rounded-3xl border border-dashed border-[#b7a891] bg-white/70 p-5 font-mono text-sm text-[#4f4339]">
@@ -200,7 +191,6 @@ export default function Home() {
         <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start">
           <div className="grid gap-4">
             {items.map((item, index) => {
-              const selected = receiptIds.includes(item.id);
               return (
                 <article key={item.id} className="rounded-[1.5rem] border border-[#d8cabb] bg-[#fffdf8] p-5 shadow-[0_8px_0_rgba(146,116,83,0.16)]">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -210,9 +200,10 @@ export default function Home() {
                         <span className="rounded-full bg-[#1f1a16] px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white">{item.category}</span>
                         <span className="rounded-full bg-[#efe2d2] px-3 py-1.5 text-xs font-bold text-[#5d4634]">Score {item.weirdnessScore}</span>
                       </div>
-                      <h2 className="mt-3 text-2xl font-black leading-tight tracking-[-0.04em] text-[#1f1a16]">{item.title}</h2>
+                      <h2 className="mt-3 text-2xl font-black leading-tight tracking-[-0.04em] text-[#1f1a16]">{itemTitle(item)}</h2>
                       <p className="mt-2 text-sm font-bold text-[#6b5442]">{item.agency} · {item.office || "office unknown"}</p>
-                      <p className="mt-3 max-w-3xl text-base leading-7 text-[#5d5349]">{shortReason(item)}.</p>
+                      <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-[#8a6b51]">Official title: {item.officialTitle ?? item.title}</p>
+                      <p className="mt-3 max-w-3xl text-base leading-7 text-[#5d5349]">{shortReason(item)}</p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {item.absurdityBadges.map((badge) => (
                           <span key={badge} className="rounded-full border border-[#d8cabb] px-3 py-1 text-xs font-bold text-[#6b5442]">{badge}</span>
@@ -220,13 +211,6 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="flex shrink-0 gap-2 sm:flex-col">
-                      <button
-                        type="button"
-                        onClick={() => toggleReceipt(item)}
-                        className={`rounded-full px-4 py-3 text-sm font-black transition ${selected ? "bg-[#efe2d2] text-[#1f1a16]" : "bg-[#1f1a16] text-white hover:bg-[#bb1d31]"}`}
-                      >
-                        {selected ? "Remove" : "Add to receipt"}
-                      </button>
                       <a
                         href={item.url}
                         target="_blank"
@@ -245,7 +229,7 @@ export default function Home() {
 
           <aside className="sticky top-5 rounded-[1.5rem] border border-[#b7a891] bg-[#fffaf0] p-5 shadow-[0_18px_60px_rgba(67,45,20,0.14)]">
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a6b51]">Receipt preview</p>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a6b51]">Today’s top 5</p>
               <h2 className="mt-2 text-3xl font-black tracking-[-0.07em]">UNCLE SAM&apos;S CART</h2>
               <p className="mt-1 text-sm text-[#6b5442]">Real public records. Weird public demand.</p>
             </div>
@@ -254,7 +238,7 @@ export default function Home() {
                 <li key={item.id} className="grid grid-cols-[2ch_1fr] gap-3">
                   <span className="font-black">{index + 1}×</span>
                   <span>
-                    <strong className="block leading-snug">{item.title}</strong>
+                    <strong className="block leading-snug">{itemTitle(item)}</strong>
                     <span className="block text-xs text-[#6b5442]">{item.agency} · {item.category}</span>
                   </span>
                 </li>
@@ -262,7 +246,7 @@ export default function Home() {
             </ol>
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono text-xs leading-5 text-[#6b5442]">
               <p>SOURCE: SAM.gov Contract Opportunities bulk data</p>
-              <p>Generated {formatDate(payload.generatedAt)} · no fabricated prices</p>
+              <p>Generated {formatDate(payload.generatedAt)} · no prices invented</p>
             </div>
             <div className="grid gap-2 py-4">
               <button type="button" onClick={copyReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">

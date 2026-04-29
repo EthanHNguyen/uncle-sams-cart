@@ -17,7 +17,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "data/sam/bulk-opportunities.json"
 OUTPUT = ROOT / "public/data/weird-items.json"
-MAX_ITEMS = 24
+MAX_ITEMS = 5
 
 CATEGORY_RULES: dict[str, dict[str, Any]] = {
     "Animal Logistics": {
@@ -77,6 +77,29 @@ BUREAUCRACY_TERMS = [
 ]
 
 STOP_AGENCIES = {"GENERAL SERVICES ADMINISTRATION"}
+
+CURATED_TOP_FIVE = {
+    "c6c6db2d4cfc415eb5a1cabf99603bce": (
+        "Army airfield needs a working-dog kennel",
+        "The government is shopping for kennel infrastructure for military working dogs at Hunter Army Airfield.",
+    ),
+    "a12c60bafdcf4044bfc27057b3322359": (
+        "Inflatable shallow-water jet boat bundle",
+        "Fish and Wildlife-adjacent procurement, but make it an inflatable jet boat with motor and trailer.",
+    ),
+    "8a6f3c12e20a4120940e4db880fce3aa": (
+        "Deer and goose processing",
+        "A beautifully blunt public-record title: deer, geese, and procurement paperwork.",
+    ),
+    "71dc2dab496f4fed90cf2c9d78e215b8": (
+        "National fish food purchase",
+        "Somewhere in the federal machine, the fish food line item is real.",
+    ),
+    "ef250615bdaf4e5a9cd0f4f7ffd1503b": (
+        "National forest vault toilet pumping",
+        "The outdoors are majestic. The maintenance contracts are specific.",
+    ),
+}
 
 
 def clean_space(value: str | None) -> str:
@@ -200,6 +223,7 @@ def score_item(item: dict[str, Any]) -> dict[str, Any] | None:
     return {
         "id": clean_space(item.get("id")) or re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-"),
         "title": title,
+        "officialTitle": title,
         "agency": short_agency(agency),
         "agencyFull": agency,
         "office": office,
@@ -235,27 +259,33 @@ def main() -> None:
 
     scored.sort(key=lambda it: (-it["weirdnessScore"], it["agency"], it["title"]))
 
-    # Keep variety: no one agency should dominate the receipt.
+    # The homepage is intentionally curated to the five funniest source-backed records,
+    # while the scoring pass still supplies the candidate pool.
+    by_id = {item["id"]: item for item in scored}
     selected = []
-    agency_counts: Counter[str] = Counter()
-    category_counts: Counter[str] = Counter()
-    for item in scored:
-        if agency_counts[item["agency"]] >= 7:
+    for item_id, (display_title, punchline) in CURATED_TOP_FIVE.items():
+        item = by_id.get(item_id)
+        if not item:
             continue
-        if category_counts[item["category"]] >= 9:
-            continue
+        item["displayTitle"] = display_title
+        item["punchline"] = punchline
         selected.append(item)
-        agency_counts[item["agency"]] += 1
-        category_counts[item["category"]] += 1
-        if len(selected) >= MAX_ITEMS:
-            break
+
+    if len(selected) < MAX_ITEMS:
+        selected_ids = {item["id"] for item in selected}
+        for item in scored:
+            if item["id"] in selected_ids:
+                continue
+            selected.append(item)
+            if len(selected) >= MAX_ITEMS:
+                break
 
     output = {
         "source": "sam.gov-bulk-csv",
         "generatedAt": payload.get("generatedAt"),
         "totalRows": payload.get("totalRows"),
         "activeRows": payload.get("activeRows", len(opportunities)),
-        "method": "deterministic-keyword-scoring-no-llm-no-prices",
+        "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
         "items": selected,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
