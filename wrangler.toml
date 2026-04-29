@@ -1,0 +1,8 @@
+name = "uncle-sams-cart-events"
+main = "workers/share-events.js"
+compatibility_date = "2026-04-28"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "uncle-sams-cart-events"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"

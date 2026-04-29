@@ -8,7 +8,10 @@
     "serve": "npx serve@latest out",
     "lint": "eslint",
     "ingest:sam": "python3 scripts/ingest-sam.py",
-    "build:weird": "python3 scripts/build-weird-items.py"
+    "build:weird": "python3 scripts/build-weird-items.py",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy",
+    "worker:d1:schema": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/schema.sql"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -24,6 +27,7 @@
     "eslint-config-next": "16.2.4",
     "playwright": "^1.59.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.86.0"
   }
 }

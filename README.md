@@ -16,6 +16,7 @@ It is not a GovCon workflow tool, capture CRM, or waste/outrage dashboard.
 - Deterministic `weird-items.json` generation — no LLM, no fabricated dollar values
 - Native share action and official SAM.gov source links
 - Optional aggregate event endpoint via `NEXT_PUBLIC_SHARE_EVENT_URL` for real tracking
+- Cloudflare Worker + D1 event collector under `workers/` for static-compatible aggregate tracking
 
 ## Commands
 
@@ -25,6 +26,23 @@ npm run lint
 npm run build
 npm run dev
 ```
+
+Worker tracking commands, after Cloudflare auth is configured:
+
+```bash
+npx wrangler d1 create uncle-sams-cart-events
+# Paste the returned database_id into wrangler.toml.
+npm run worker:d1:schema
+npm run worker:deploy
+```
+
+Then set the repository Actions variable:
+
+```bash
+gh variable set NEXT_PUBLIC_SHARE_EVENT_URL --body 'https://uncle-sams-cart-events.<your-subdomain>.workers.dev'
+```
+
+The Pages workflow injects that public URL into the static Next build.
 
 Generate weird items after SAM.gov data exists:
 
