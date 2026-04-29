@@ -38,6 +38,7 @@ type WeirdPayload = {
 type EventName = "pageView" | "shareReceipt" | "sourceClick";
 
 const payload = weirdData as WeirdPayload;
+const SHARE_HOOK = "I found the weirdest real government shopping receipt on SAM.gov.";
 
 function formatDate(value: string) {
   const timestamp = Date.parse(value);
@@ -64,21 +65,6 @@ function trackingUrl() {
   url.searchParams.set("utm_medium", "share");
   url.searchParams.set("utm_campaign", "weird_sam_receipt");
   return url.toString();
-}
-
-function buildReceipt(items: WeirdItem[]) {
-  const lines = [
-    "UNCLE SAM'S CART",
-    "Actual public records. Very unusual errands.",
-    "",
-    ...items.map((item, index) => {
-      return `${String(index + 1).padStart(2, "0")}. ${itemTitle(item)}\n    ${item.agency} · ${itemCategory(item)}\n    Receipt note: ${shortReason(item)}\n    Official title: ${item.officialTitle ?? item.title}\n    Source: ${item.url}`;
-    }),
-    "",
-    `Sources: SAM.gov bulk Contract Opportunities · ${payload.activeRows.toLocaleString()} public records scanned`,
-    trackingUrl(),
-  ];
-  return lines.join("\n");
 }
 
 function currentPathWithUtm() {
@@ -114,12 +100,11 @@ export default function Home() {
   }, []);
 
   const receiptItems = items;
-  const receiptText = useMemo(() => buildReceipt(receiptItems), [receiptItems]);
 
   async function shareReceipt() {
     const shareData = {
       title: "Uncle Sam's Cart",
-      text: `Actual SAM.gov public records, arranged like a checkout receipt because the fish apparently have a federal meal plan.\n\n${receiptText}`,
+      text: SHARE_HOOK,
       url: trackingUrl(),
     };
 
