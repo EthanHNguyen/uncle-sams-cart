@@ -20,9 +20,9 @@
       "category": "Animal Logistics",
       "weirdnessScore": 190,
       "absurdityBadges": [
-        "Animal Logistics",
-        "Oddly Specific Object",
-        "Government Vibe"
+        "Dogs With Jobs",
+        "Base Housing",
+        "Officially Real"
       ],
       "matchedTerms": [
         "dog",
@@ -35,10 +35,11 @@
         "oddly specific object signal: sign",
         "government vibe signal: airfield"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item.",
       "officialTitle": "Military Working Dog Kennel Hunter Army Airfield, Savannah, Georgia",
-      "displayTitle": "Uncle Sam is building barracks for very good boys",
-      "punchline": "Officially: a military working-dog kennel. Unofficially: base housing for employees who already outrank your Roomba."
+      "displayTitle": "Barracks, but for dogs with jobs",
+      "punchline": "Officially, it is a military working-dog kennel. Unofficially, it is base housing for employees who can smell contraband.",
+      "displayCategory": "Dog Barracks"
     },
     {
       "id": "a12c60bafdcf4044bfc27057b3322359",
@@ -55,8 +56,9 @@
       "category": "Animal Logistics",
       "weirdnessScore": 184,
       "absurdityBadges": [
-        "Animal Logistics",
-        "Oddly Specific Object"
+        "Tiny Action Movie",
+        "Trailer Included",
+        "Officially Real"
       ],
       "matchedTerms": [
         "fish",
@@ -69,10 +71,11 @@
         "oddly specific object signal: boat",
         "federal procurement language around a surprisingly concrete object"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item.",
       "officialTitle": "Inflatable Shallow-Water Jet Boat, Motor, and Trailer",
-      "displayTitle": "Add to cart: inflatable jet boat, motor, trailer, probably wetlands chaos",
-      "punchline": "The federal shopping list has entered its \u201ctiny action movie in shallow water\u201d phase."
+      "displayTitle": "Inflatable jet boat. Motor included. Democracy continues.",
+      "punchline": "Somewhere in procurement, someone typed “inflatable shallow-water jet boat” and everyone just kept moving.",
+      "displayCategory": "Marsh Vehicle"
     },
     {
       "id": "8a6f3c12e20a4120940e4db880fce3aa",
@@ -89,8 +92,9 @@
       "category": "Animal Logistics",
       "weirdnessScore": 158,
       "absurdityBadges": [
-        "Animal Logistics",
-        "Tactical Snack"
+        "No Euphemisms",
+        "Park Ranger Energy",
+        "Officially Real"
       ],
       "matchedTerms": [
         "goose",
@@ -101,10 +105,11 @@
         "animal logistics signal: goose, deer",
         "tactical snack signal: meat"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item.",
       "officialTitle": "Deer and Goose Processing",
-      "displayTitle": "Government seeks someone to process deer and geese, extremely calmly",
-      "punchline": "A procurement title so blunt it sounds like a park ranger lost a bet with a spreadsheet."
+      "displayTitle": "The deer and geese situation has reached procurement",
+      "punchline": "The official title is just “DEER AND GOOSE PROCESSING,” which is either a contract notice or the world’s bleakest lunch menu.",
+      "displayCategory": "Deer/Goose Affairs"
     },
     {
       "id": "71dc2dab496f4fed90cf2c9d78e215b8",
@@ -121,8 +126,9 @@
       "category": "Animal Logistics",
       "weirdnessScore": 158,
       "absurdityBadges": [
-        "Animal Logistics",
-        "Tactical Snack"
+        "Fish With Paperwork",
+        "Meal Plan",
+        "Officially Real"
       ],
       "matchedTerms": [
         "fish",
@@ -133,10 +139,11 @@
         "animal logistics signal: fish, salmon",
         "tactical snack signal: fish food"
       ],
-      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item.",
       "officialTitle": "NATL FISH FOOD BPA CALL",
-      "displayTitle": "National fish food order, because the fish have a government meal plan",
-      "punchline": "Somewhere, a federal fish is eating better-documented food than you are."
+      "displayTitle": "The fish are on a federal meal plan",
+      "punchline": "Somewhere, a government fish is eating food with better documentation than your last DoorDash order.",
+      "displayCategory": "Federal Fish Dinner"
     },
     {
       "id": "2a18813a26194d00ac6195887ef04cc9",
@@ -153,8 +160,9 @@
       "category": "Oddly Specific Object",
       "weirdnessScore": 132,
       "absurdityBadges": [
-        "Oddly Specific Object",
-        "Government Vibe"
+        "Nature Is Healing",
+        "Pump Truck Required",
+        "Officially Real"
       ],
       "matchedTerms": [
         "toilet",
@@ -166,10 +174,11 @@
         "oddly specific object signal: toilet, toilets",
         "government vibe signal: vault, forest"
       ],
-      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable \u2014 the weird part is seeing it as an official line item.",
+      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item.",
       "officialTitle": "Superior National Forest Vault Toilet Pumping",
-      "displayTitle": "Forest toilets require a contractor with courage and a pump truck",
-      "punchline": "The national parks are beautiful because someone, somewhere, bid on this sentence."
+      "displayTitle": "National forest seeks brave soul with pump truck",
+      "punchline": "The parks are beautiful because someone, somewhere, agreed to handle the worst paragraph in the contract.",
+      "displayCategory": "Toilet Infrastructure"
     }
   ]
 }

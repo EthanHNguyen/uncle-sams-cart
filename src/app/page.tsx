@@ -21,6 +21,7 @@ type WeirdItem = {
   category: string;
   weirdnessScore: number;
   absurdityBadges: string[];
+  displayCategory?: string;
   weirdnessReasons: string[];
   plainEnglish: string;
 };
@@ -52,6 +53,10 @@ function shortReason(item: WeirdItem) {
   return item.punchline ?? item.weirdnessReasons[0]?.replace(/ signal:/, ":") ?? item.plainEnglish;
 }
 
+function itemCategory(item: WeirdItem) {
+  return item.displayCategory ?? item.category;
+}
+
 function trackingUrl() {
   if (typeof window === "undefined") return "https://ethanhn.com";
   const url = new URL(window.location.href);
@@ -64,10 +69,10 @@ function trackingUrl() {
 function buildReceipt(items: WeirdItem[]) {
   const lines = [
     "UNCLE SAM'S CART",
-    "Real records. Unusual errands.",
+    "Actual public records. Very unusual errands.",
     "",
     ...items.map((item, index) => {
-      return `${String(index + 1).padStart(2, "0")}. ${itemTitle(item)}\n    ${item.agency} · ${item.category}\n    Why weird: ${shortReason(item)}\n    Official title: ${item.officialTitle ?? item.title}\n    Source: ${item.url}`;
+      return `${String(index + 1).padStart(2, "0")}. ${itemTitle(item)}\n    ${item.agency} · ${itemCategory(item)}\n    Receipt note: ${shortReason(item)}\n    Official title: ${item.officialTitle ?? item.title}\n    Source: ${item.url}`;
     }),
     "",
     `Sources: SAM.gov bulk Contract Opportunities · ${payload.activeRows.toLocaleString()} public records scanned`,
@@ -93,7 +98,7 @@ function sendOptionalBeacon(eventName: EventName, data: Record<string, string | 
 
 export default function Home() {
   const items = useMemo(() => payload.items.slice(0, 5), []);
-  const [toast, setToast] = useState("Ready to make the group chat ask questions.");
+  const [toast, setToast] = useState("Ready to make the group chat ask who approved this errand.");
 
   const receiptItems = items;
   const receiptText = useMemo(() => buildReceipt(receiptItems), [receiptItems]);
@@ -113,7 +118,7 @@ export default function Home() {
     try {
       await navigator.share(shareData);
       sendOptionalBeacon("shareReceipt", { count: receiptItems.length });
-      setToast("Shared. Democracy has entered the group chat.");
+      setToast("Shared. Democracy has entered the group chat with receipts.");
     } catch {
       setToast("Share canceled. No victory lap, no phantom counter.");
     }
@@ -139,7 +144,7 @@ export default function Home() {
                 The government went shopping. It got weird.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-[#66574b]">
-                Real government contract notices from SAM.gov, served as a receipt because public records deserve better jokes.
+                Actual government contract notices, presented as a shopping receipt because democracy apparently needs fish food.
               </p>
             </div>
             <aside className="rounded-3xl border border-dashed border-[#b7a891] bg-white/70 p-5 font-mono text-sm text-[#4f4339]">
@@ -160,8 +165,8 @@ export default function Home() {
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="font-mono text-2xl font-black text-[#bb1d31]">#{index + 1}</span>
-                        <span className="rounded-full bg-[#1f1a16] px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white">{item.category}</span>
-                        <span className="rounded-full bg-[#efe2d2] px-3 py-1.5 text-xs font-bold text-[#5d4634]">Score {item.weirdnessScore}</span>
+                        <span className="rounded-full bg-[#1f1a16] px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-white">Line item #{index + 1}</span>
+                        <span className="rounded-full bg-[#efe2d2] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-[#5d4634]">{itemCategory(item)}</span>
                       </div>
                       <h2 className="mt-3 text-2xl font-black leading-tight tracking-[-0.04em] text-[#1f1a16]">{itemTitle(item)}</h2>
                       <p className="mt-2 text-sm font-bold text-[#6b5442]">{item.agency} · {item.office || "office unknown"}</p>
@@ -194,7 +199,7 @@ export default function Home() {
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a6b51]">Today’s top 5</p>
               <h2 className="mt-2 text-3xl font-black tracking-[-0.07em]">UNCLE SAM&apos;S CART</h2>
-              <p className="mt-1 text-sm text-[#6b5442]">Real public records. Deeply normal democracy.</p>
+              <p className="mt-1 text-sm text-[#6b5442]">Actual public records. Extremely normal errands.</p>
             </div>
             <ol className="max-h-[46vh] space-y-3 overflow-auto border-b border-dashed border-[#b7a891] py-4 pr-1 font-mono text-sm">
               {receiptItems.map((item, index) => (
@@ -202,14 +207,14 @@ export default function Home() {
                   <span className="font-black">{index + 1}×</span>
                   <span>
                     <strong className="block leading-snug">{itemTitle(item)}</strong>
-                    <span className="block text-xs text-[#6b5442]">{item.agency} · {item.category}</span>
+                    <span className="block text-xs text-[#6b5442]">{item.agency} · {itemCategory(item)}</span>
                   </span>
                 </li>
               ))}
             </ol>
             <div className="border-b border-dashed border-[#b7a891] pb-4 font-mono text-xs leading-5 text-[#6b5442]">
               <p>SOURCE: SAM.gov Contract Opportunities bulk data</p>
-              <p>Generated {formatDate(payload.generatedAt)} · prices left to the paperwork</p>
+              <p>Generated {formatDate(payload.generatedAt)} · prices hidden somewhere in the paperwork</p>
             </div>
             <div className="grid gap-2 py-4">
               <button type="button" onClick={shareReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">

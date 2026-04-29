@@ -79,26 +79,36 @@ BUREAUCRACY_TERMS = [
 STOP_AGENCIES = {"GENERAL SERVICES ADMINISTRATION"}
 
 CURATED_TOP_FIVE = {
-    "c6c6db2d4cfc415eb5a1cabf99603bce": (
-        "Uncle Sam is building barracks for very good boys",
-        "Officially: a military working-dog kennel. Unofficially: base housing for employees who already outrank your Roomba.",
-    ),
-    "a12c60bafdcf4044bfc27057b3322359": (
-        "Add to cart: inflatable jet boat, motor, trailer, probably wetlands chaos",
-        "The federal shopping list has entered its “tiny action movie in shallow water” phase.",
-    ),
-    "8a6f3c12e20a4120940e4db880fce3aa": (
-        "Government seeks someone to process deer and geese, extremely calmly",
-        "A procurement title so blunt it sounds like a park ranger lost a bet with a spreadsheet.",
-    ),
-    "71dc2dab496f4fed90cf2c9d78e215b8": (
-        "National fish food order, because the fish have a government meal plan",
-        "Somewhere, a federal fish is eating better-documented food than you are.",
-    ),
-    "2a18813a26194d00ac6195887ef04cc9": (
-        "Forest toilets require a contractor with courage and a pump truck",
-        "The national parks are beautiful because someone, somewhere, bid on this sentence.",
-    ),
+    "c6c6db2d4cfc415eb5a1cabf99603bce": {
+        "displayTitle": "Barracks, but for dogs with jobs",
+        "punchline": "Officially, it is a military working-dog kennel. Unofficially, it is base housing for employees who can smell contraband.",
+        "displayCategory": "Dog Barracks",
+        "absurdityBadges": ["Dogs With Jobs", "Base Housing", "Officially Real"],
+    },
+    "a12c60bafdcf4044bfc27057b3322359": {
+        "displayTitle": "Inflatable jet boat. Motor included. Democracy continues.",
+        "punchline": "Somewhere in procurement, someone typed “inflatable shallow-water jet boat” and everyone just kept moving.",
+        "displayCategory": "Marsh Vehicle",
+        "absurdityBadges": ["Tiny Action Movie", "Trailer Included", "Officially Real"],
+    },
+    "8a6f3c12e20a4120940e4db880fce3aa": {
+        "displayTitle": "The deer and geese situation has reached procurement",
+        "punchline": "The official title is just “DEER AND GOOSE PROCESSING,” which is either a contract notice or the world’s bleakest lunch menu.",
+        "displayCategory": "Deer/Goose Affairs",
+        "absurdityBadges": ["No Euphemisms", "Park Ranger Energy", "Officially Real"],
+    },
+    "71dc2dab496f4fed90cf2c9d78e215b8": {
+        "displayTitle": "The fish are on a federal meal plan",
+        "punchline": "Somewhere, a government fish is eating food with better documentation than your last DoorDash order.",
+        "displayCategory": "Federal Fish Dinner",
+        "absurdityBadges": ["Fish With Paperwork", "Meal Plan", "Officially Real"],
+    },
+    "2a18813a26194d00ac6195887ef04cc9": {
+        "displayTitle": "National forest seeks brave soul with pump truck",
+        "punchline": "The parks are beautiful because someone, somewhere, agreed to handle the worst paragraph in the contract.",
+        "displayCategory": "Toilet Infrastructure",
+        "absurdityBadges": ["Nature Is Healing", "Pump Truck Required", "Officially Real"],
+    },
 }
 
 
@@ -263,12 +273,11 @@ def main() -> None:
     # while the scoring pass still supplies the candidate pool.
     by_id = {item["id"]: item for item in scored}
     selected = []
-    for item_id, (display_title, punchline) in CURATED_TOP_FIVE.items():
+    for item_id, curated_fields in CURATED_TOP_FIVE.items():
         item = by_id.get(item_id)
         if not item:
             continue
-        item["displayTitle"] = display_title
-        item["punchline"] = punchline
+        item.update(curated_fields)
         selected.append(item)
 
     if len(selected) < MAX_ITEMS:

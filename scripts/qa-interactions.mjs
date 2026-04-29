@@ -23,16 +23,24 @@ const result = {
   removeButtons,
   localStats,
   hasNoLocalStats: localStats === null,
-  hasSimpleWittyDescription: bodyBefore.includes('Real government contract notices from SAM.gov, served as a receipt because public records deserve better jokes.'),
+  hasSimpleWittyDescription: bodyBefore.includes('Actual government contract notices, presented as a shopping receipt because democracy apparently needs fish food.'),
   hasNoFake: !/fake/i.test(bodyBefore + bodyAfterShare),
   hasTopFive: /today['’]s top 5/i.test(bodyBefore),
   hasPunchierTitles: [
-    'Uncle Sam is building barracks for very good boys',
-    'Add to cart: inflatable jet boat, motor, trailer, probably wetlands chaos',
-    'Government seeks someone to process deer and geese, extremely calmly',
-    'National fish food order, because the fish have a government meal plan',
-    'Forest toilets require a contractor with courage and a pump truck',
+    'Barracks, but for dogs with jobs',
+    'Inflatable jet boat. Motor included. Democracy continues.',
+    'The deer and geese situation has reached procurement',
+    'The fish are on a federal meal plan',
+    'National forest seeks brave soul with pump truck',
   ].every((title) => bodyBefore.includes(title)),
+  hasPunchierPunchlines: [
+    'employees who can smell contraband',
+    'everyone just kept moving',
+    'world’s bleakest lunch menu',
+    'better documentation than your last DoorDash order',
+    'worst paragraph in the contract',
+  ].every((line) => bodyBefore.includes(line)),
+  hasNoScoreLabels: !/Score \d+/.test(bodyBefore),
 };
 console.log(JSON.stringify(result, null, 2));
 if (
@@ -45,7 +53,9 @@ if (
   !result.hasSimpleWittyDescription ||
   !result.hasNoFake ||
   !result.hasTopFive ||
-  !result.hasPunchierTitles
+  !result.hasPunchierTitles ||
+  !result.hasPunchierPunchlines ||
+  !result.hasNoScoreLabels
 ) {
   process.exitCode = 1;
 }
