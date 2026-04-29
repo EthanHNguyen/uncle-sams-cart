@@ -8,6 +8,11 @@ assert.match(page, /const SHARE_HOOK\s*=\s*"[^"]+[.!?]";/, 'share hook should be
 assert.doesNotMatch(page, /text:\s*`[\s\S]*\$\{receiptText\}/, 'native share text must not include the full receipt');
 assert.doesNotMatch(page, /const receiptText\s*=\s*useMemo/, 'share path should not build/copy the full receipt text');
 assert.match(page, /text:\s*SHARE_HOOK/, 'native share should use the concise hook');
+assert.match(page, /shareTitle:\s*shareData\.title/, 'share analytics should capture exact shared title');
+assert.match(page, /shareText:\s*shareData\.text/, 'share analytics should capture exact shared text');
+assert.match(page, /shareUrl:\s*shareData\.url/, 'share analytics should capture exact shared URL');
+assert.match(page, /shareItemTitles:/, 'share analytics should capture item titles used to tune future receipts');
+assert.match(page, /Copy link/, 'page should include a copy-link fallback for desktop sharing');
 
 assert.match(layout, /metadataBase:\s*new URL\("https:\/\/ethanhn\.com"\)/, 'metadata should use absolute ethanhn.com URLs');
 assert.match(layout, /alternates:\s*{\s*canonical:\s*"\/uncle-sams-cart\/"/s, 'metadata should declare canonical URL');

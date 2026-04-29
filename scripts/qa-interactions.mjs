@@ -6,7 +6,7 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 await page.goto(target, { waitUntil: 'networkidle' });
 const bodyBefore = await page.locator('body').innerText();
 const sourceLinks = await page.locator('a', { hasText: 'Source' }).count();
-const copyButtons = await page.locator('button', { hasText: 'Copy receipt' }).count();
+const copyButtons = await page.locator('button', { hasText: 'Copy link' }).count();
 const shareButtons = await page.locator('button', { hasText: 'Share receipt' }).count();
 const addButtons = await page.locator('button', { hasText: 'Add to receipt' }).count();
 const removeButtons = await page.locator('button', { hasText: 'Remove' }).count();
@@ -45,7 +45,7 @@ const result = {
 console.log(JSON.stringify(result, null, 2));
 if (
   result.sourceLinks !== 5 ||
-  result.copyButtons !== 0 ||
+  result.copyButtons !== 1 ||
   result.shareButtons !== 1 ||
   result.addButtons !== 0 ||
   result.removeButtons !== 0 ||

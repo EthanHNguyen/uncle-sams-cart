@@ -35,7 +35,7 @@ type WeirdPayload = {
   items: WeirdItem[];
 };
 
-type EventName = "pageView" | "shareReceipt" | "sourceClick";
+type EventName = "pageView" | "shareReceipt" | "copyLink" | "sourceClick";
 
 const payload = weirdData as WeirdPayload;
 const SHARE_HOOK = "I found the weirdest real government shopping receipt on SAM.gov.";
@@ -87,6 +87,14 @@ function sendOptionalBeacon(eventName: EventName, data: Record<string, string | 
   }
 }
 
+function shareItemIds(items: WeirdItem[]) {
+  return items.map((item) => item.id).join(",");
+}
+
+function shareItemTitles(items: WeirdItem[]) {
+  return items.map((item) => itemTitle(item)).join(" | ");
+}
+
 export default function Home() {
   const items = useMemo(() => payload.items.slice(0, 5), []);
   const [toast, setToast] = useState("Ready to make the group chat ask who approved this errand.");
@@ -107,18 +115,36 @@ export default function Home() {
       text: SHARE_HOOK,
       url: trackingUrl(),
     };
+    const sharePayload = {
+      count: receiptItems.length,
+      shareTitle: shareData.title,
+      shareText: shareData.text,
+      shareUrl: shareData.url,
+      shareItemIds: shareItemIds(receiptItems),
+      shareItemTitles: shareItemTitles(receiptItems),
+    };
 
     if (!navigator.share) {
-      setToast("Your browser does not support native sharing. The receipt remains weird and fully source-linked.");
+      await copyShareLink(sharePayload);
       return;
     }
 
     try {
       await navigator.share(shareData);
-      sendOptionalBeacon("shareReceipt", { count: receiptItems.length });
+      sendOptionalBeacon("shareReceipt", { ...sharePayload, shareMethod: "native" });
       setToast("Shared. Democracy has entered the group chat with receipts.");
     } catch {
       setToast("Share canceled. No victory lap, no phantom counter.");
+    }
+  }
+
+  async function copyShareLink(sharePayload: Record<string, string | number>) {
+    try {
+      await navigator.clipboard.writeText(String(sharePayload.shareUrl));
+      sendOptionalBeacon("copyLink", { ...sharePayload, shareMethod: "copy" });
+      setToast("Link copied. One sentence, one preview, zero receipt wall.");
+    } catch {
+      setToast("Copy failed. The receipt is still source-linked if you grab the URL manually.");
     }
   }
 
@@ -217,6 +243,9 @@ export default function Home() {
             <div className="grid gap-2 py-4">
               <button type="button" onClick={shareReceipt} className="rounded-full bg-[#1f1a16] px-4 py-3 font-black text-white hover:bg-[#bb1d31]">
                 Share receipt
+              </button>
+              <button type="button" onClick={() => copyShareLink({ count: receiptItems.length, shareTitle: "Uncle Sam's Cart", shareText: SHARE_HOOK, shareUrl: trackingUrl(), shareItemIds: shareItemIds(receiptItems), shareItemTitles: shareItemTitles(receiptItems), shareMethod: "copy" })} className="rounded-full border border-[#b7a891] px-4 py-3 font-black text-[#1f1a16] hover:bg-[#fff3df]">
+                Copy link
               </button>
             </div>
             <div className="rounded-2xl bg-white/75 p-4 text-sm text-[#5d5349]">

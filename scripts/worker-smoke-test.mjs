@@ -17,8 +17,8 @@ class FakeStatement {
     if (!/insert into events/i.test(this.sql)) {
       throw new Error(`Unexpected run SQL: ${this.sql}`);
     }
-    const [event, app, createdAt, count, itemId, category, origin, referer, path, utmSource, utmMedium, utmCampaign] = this.bound;
-    this.db.rows.push({ event, app, created_at: createdAt, count, item_id: itemId, category, origin, referer, path, utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign });
+    const [event, app, createdAt, count, itemId, category, origin, referer, path, utmSource, utmMedium, utmCampaign, shareTitle, shareText, shareUrl, shareItemIds, shareItemTitles, shareMethod] = this.bound;
+    this.db.rows.push({ event, app, created_at: createdAt, count, item_id: itemId, category, origin, referer, path, utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign, share_title: shareTitle, share_text: shareText, share_url: shareUrl, share_item_ids: shareItemIds, share_item_titles: shareItemTitles, share_method: shareMethod });
     return { success: true };
   }
 
@@ -93,7 +93,7 @@ assert.equal(result.response.status, 415, 'non-JSON POSTs must be rejected');
 result = await request(env, '/', {
   method: 'POST',
   headers: { origin: 'https://ethanhn.com', 'content-type': 'application/json' },
-  body: JSON.stringify({ app: 'uncle-sams-cart', event: 'pageView', padding: 'x'.repeat(5000) }),
+  body: JSON.stringify({ app: 'uncle-sams-cart', event: 'pageView', padding: 'x'.repeat(9000) }),
 });
 assert.equal(result.response.status, 413, 'oversized JSON must be rejected even without Content-Length');
 
@@ -114,6 +114,35 @@ assert.equal(env.DB.rows[0].path, '/uncle-sams-cart/');
 assert.equal(env.DB.rows[0].utm_source, 'groupchat');
 assert.equal(env.DB.rows[0].utm_medium, 'share');
 assert.equal(env.DB.rows[0].utm_campaign, 'weird_sam_receipt');
+
+result = await request(env, '/', {
+  method: 'POST',
+  headers: {
+    origin: 'https://ethanhn.com',
+    referer: 'https://ethanhn.com/uncle-sams-cart/',
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify({
+    app: 'uncle-sams-cart',
+    event: 'shareReceipt',
+    count: 5,
+    path: '/uncle-sams-cart/?utm_source=uncle_sams_cart&utm_medium=share&utm_campaign=weird_sam_receipt',
+    shareTitle: "Uncle Sam's Cart",
+    shareText: 'I found the weirdest real government shopping receipt on SAM.gov.',
+    shareUrl: 'https://ethanhn.com/uncle-sams-cart/?utm_source=uncle_sams_cart&utm_medium=share&utm_campaign=weird_sam_receipt&secret=discard-me',
+    shareItemIds: 'mwd-kennel,fish-food',
+    shareItemTitles: 'Barracks, but for dogs with jobs | The fish are on a federal meal plan',
+    shareMethod: 'native',
+  }),
+});
+assert.equal(result.response.status, 200, 'shareReceipt should accept captured share payload details');
+assert.equal(env.DB.rows.length, 2);
+assert.equal(env.DB.rows[1].share_title, "Uncle Sam's Cart");
+assert.equal(env.DB.rows[1].share_text, 'I found the weirdest real government shopping receipt on SAM.gov.');
+assert.equal(env.DB.rows[1].share_url, 'https://ethanhn.com/uncle-sams-cart/');
+assert.equal(env.DB.rows[1].share_item_ids, 'mwd-kennel,fish-food');
+assert.equal(env.DB.rows[1].share_item_titles, 'Barracks, but for dogs with jobs | The fish are on a federal meal plan');
+assert.equal(env.DB.rows[1].share_method, 'native');
 
 result = await request(env, '/summary');
 assert.equal(result.response.status, 401, '/summary should require auth when SUMMARY_TOKEN exists');

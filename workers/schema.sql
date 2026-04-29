@@ -13,7 +13,13 @@ create table if not exists events (
   path text,
   utm_source text,
   utm_medium text,
-  utm_campaign text
+  utm_campaign text,
+  share_title text,
+  share_text text,
+  share_url text,
+  share_item_ids text,
+  share_item_titles text,
+  share_method text
 );
 
 create index if not exists idx_events_event_created_at on events(event, created_at);

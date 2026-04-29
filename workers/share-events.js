@@ -1,6 +1,6 @@
 const APP = "uncle-sams-cart";
-const ALLOWED_EVENTS = new Set(["pageView", "shareReceipt", "sourceClick"]);
-const MAX_BODY_BYTES = 4096;
+const ALLOWED_EVENTS = new Set(["pageView", "shareReceipt", "copyLink", "sourceClick"]);
+const MAX_BODY_BYTES = 8192;
 const ALLOWED_ORIGINS = new Set([
   "https://ethanhn.com",
   "https://ethanhnguyen.github.io",
@@ -74,12 +74,18 @@ const worker = {
     const referer = sanitizeAbsoluteUrl(request.headers.get("Referer"), origin);
     const path = sanitizePath(body.path || request.headers.get("Referer"));
     const utm = extractUtm(body.path || request.headers.get("Referer"));
+    const shareTitle = cleanNullableString(body.shareTitle, 120);
+    const shareText = cleanNullableString(body.shareText, 512);
+    const shareUrl = sanitizeAbsoluteUrl(body.shareUrl, origin);
+    const shareItemIds = cleanNullableString(body.shareItemIds, 512);
+    const shareItemTitles = cleanNullableString(body.shareItemTitles, 1000);
+    const shareMethod = cleanNullableString(body.shareMethod, 32);
 
     await env.DB.prepare(
-      `insert into events (event, app, created_at, count, item_id, category, origin, referer, path, utm_source, utm_medium, utm_campaign)
-       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `insert into events (event, app, created_at, count, item_id, category, origin, referer, path, utm_source, utm_medium, utm_campaign, share_title, share_text, share_url, share_item_ids, share_item_titles, share_method)
+       values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
-      .bind(event, APP, new Date().toISOString(), count, itemId, category, origin, referer, path, utm.source, utm.medium, utm.campaign)
+      .bind(event, APP, new Date().toISOString(), count, itemId, category, origin, referer, path, utm.source, utm.medium, utm.campaign, shareTitle, shareText, shareUrl, shareItemIds, shareItemTitles, shareMethod)
       .run();
 
     return Response.json({ ok: true }, { headers: cors });
@@ -112,10 +118,18 @@ async function summary(request, env, cors) {
   ).all();
 
   const recent = await env.DB.prepare(
-    `select event, created_at, item_id, category, path, utm_source
+    `select event, created_at, item_id, category, path, utm_source, share_text, share_url, share_item_titles, share_method
      from events
      order by id desc
      limit 10`
+  ).all();
+
+  const sharedPayloads = await env.DB.prepare(
+    `select created_at, share_text, share_url, share_item_ids, share_item_titles, share_method, utm_source, utm_medium, utm_campaign
+     from events
+     where event in ('shareReceipt', 'copyLink') and share_text is not null
+     order by id desc
+     limit 50`
   ).all();
 
   const daily = await env.DB.prepare(
@@ -132,6 +146,7 @@ async function summary(request, env, cors) {
       totals: totals.results || [],
       topSources: topSources.results || [],
       recent: recent.results || [],
+      sharedPayloads: sharedPayloads.results || [],
       daily: daily.results || [],
     },
     { headers: cors },
