@@ -3,6 +3,9 @@ name: Deploy static site to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "public/data/weird-items.json"
+      - "public/data/archive/**"
   workflow_dispatch:
 
 permissions:

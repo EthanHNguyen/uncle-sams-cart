@@ -1,0 +1,61 @@
+name: Daily receipt refresh
+
+on:
+  schedule:
+    # 9:15 AM Eastern during standard time; acceptable as a morning habit anchor.
+    - cron: "15 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GITHUB_PAGES: "true"
+  NEXT_PUBLIC_SHARE_EVENT_URL: ${{ vars.NEXT_PUBLIC_SHARE_EVENT_URL }}
+
+concurrency:
+  group: daily-receipt-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Refresh SAM.gov receipt data
+        run: npm run refresh:data
+
+      - name: Commit refreshed data if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/weird-items.json public/data/archive/
+          if git diff --cached --quiet; then
+            echo "No receipt data changes to commit."
+          else
+            git commit -m "data: refresh daily Uncle Sam's Cart receipt"
+            git push
+          fi
+
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

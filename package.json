@@ -12,10 +12,14 @@
     "qa": "node scripts/qa-interactions.mjs",
     "ingest:sam": "python3 scripts/ingest-sam.py",
     "build:weird": "python3 scripts/build-weird-items.py",
+    "archive:weird": "python3 scripts/archive-weird-items.py",
+    "refresh:data": "python3 scripts/ingest-sam.py --force && python3 scripts/build-weird-items.py && python3 scripts/archive-weird-items.py",
+    "share:tuning": "python3 scripts/share-tuning-report.py",
     "worker:dev": "wrangler dev",
     "worker:deploy": "wrangler deploy",
     "worker:d1:schema": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/schema.sql",
-    "worker:d1:migrate:analytics": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/migrations/0002_pageview_utm_columns.sql"
+    "worker:d1:migrate:analytics": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/migrations/0002_pageview_utm_columns.sql",
+    "worker:d1:migrate:share-payloads": "wrangler d1 execute uncle-sams-cart-events --remote --file workers/migrations/0003_share_payload_columns.sql"
   },
   "dependencies": {
     "next": "16.2.4",
