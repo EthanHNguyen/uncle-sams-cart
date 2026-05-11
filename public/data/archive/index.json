@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-05-10T15:17:16.974412+00:00",
-  "latestDate": "2026-05-10",
+  "updatedAt": "2026-05-11T16:50:34.813559+00:00",
+  "latestDate": "2026-05-11",
   "receipts": [
+    {
+      "date": "2026-05-11",
+      "path": "/data/archive/2026-05-11.json",
+      "generatedAt": "2026-05-11T16:49:11.078423+00:00",
+      "activeRows": 77754,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
+        "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
+      ]
+    },
     {
       "date": "2026-05-10",
       "path": "/data/archive/2026-05-10.json",
