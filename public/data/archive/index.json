@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-06-07T15:45:58.052442+00:00",
-  "latestDate": "2026-06-07",
+  "updatedAt": "2026-06-08T17:31:48.480174+00:00",
+  "latestDate": "2026-06-08",
   "receipts": [
+    {
+      "date": "2026-06-08",
+      "path": "/data/archive/2026-06-08.json",
+      "generatedAt": "2026-06-08T17:30:15.523386+00:00",
+      "activeRows": 77299,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "FCI SCHUYLKILL FY26 4TH QUARTER SUBSISTENCE, BREAD, MILK, EGGS",
+        "Y--USFWS_Bears Bluff NFH, SC_Roofing"
+      ]
+    },
     {
       "date": "2026-06-07",
       "path": "/data/archive/2026-06-07.json",
