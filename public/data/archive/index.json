@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-06-13T15:53:32.984362+00:00",
-  "latestDate": "2026-06-13",
+  "updatedAt": "2026-06-14T16:00:28.500743+00:00",
+  "latestDate": "2026-06-14",
   "receipts": [
+    {
+      "date": "2026-06-14",
+      "path": "/data/archive/2026-06-14.json",
+      "generatedAt": "2026-06-14T15:58:52.882620+00:00",
+      "activeRows": 79807,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "FCI SCHUYLKILL FY26 4TH QUARTER SUBSISTENCE, BREAD, MILK, EGGS",
+        "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205"
+      ]
+    },
     {
       "date": "2026-06-13",
       "path": "/data/archive/2026-06-13.json",
