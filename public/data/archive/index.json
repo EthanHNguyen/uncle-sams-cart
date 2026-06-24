@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-06-23T16:45:31.979683+00:00",
-  "latestDate": "2026-06-23",
+  "updatedAt": "2026-06-24T16:35:46.287125+00:00",
+  "latestDate": "2026-06-24",
   "receipts": [
+    {
+      "date": "2026-06-24",
+      "path": "/data/archive/2026-06-24.json",
+      "generatedAt": "2026-06-24T16:34:41.368719+00:00",
+      "activeRows": 79997,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "Turnbull NWR Boundary Fence Maintenance",
+        "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205"
+      ]
+    },
     {
       "date": "2026-06-23",
       "path": "/data/archive/2026-06-23.json",
