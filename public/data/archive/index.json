@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-06-26T16:30:52.972555+00:00",
-  "latestDate": "2026-06-26",
+  "updatedAt": "2026-06-27T15:42:26.090551+00:00",
+  "latestDate": "2026-06-27",
   "receipts": [
+    {
+      "date": "2026-06-27",
+      "path": "/data/archive/2026-06-27.json",
+      "generatedAt": "2026-06-27T15:40:52.064165+00:00",
+      "activeRows": 80524,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "Turnbull NWR Boundary Fence Maintenance"
+      ]
+    },
     {
       "date": "2026-06-26",
       "path": "/data/archive/2026-06-26.json",
