@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-07-07T16:44:15.192367+00:00",
-  "latestDate": "2026-07-07",
+  "updatedAt": "2026-07-08T16:14:05.972561+00:00",
+  "latestDate": "2026-07-08",
   "receipts": [
+    {
+      "date": "2026-07-08",
+      "path": "/data/archive/2026-07-08.json",
+      "generatedAt": "2026-07-08T16:12:34.231407+00:00",
+      "activeRows": 77682,
+      "itemCount": 5,
+      "titles": [
+        "The deer and geese situation has reached procurement",
+        "Install a bat-friendly wildlife gate located on the Olympic National Forest",
+        "WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
+      ]
+    },
     {
       "date": "2026-07-07",
       "path": "/data/archive/2026-07-07.json",
