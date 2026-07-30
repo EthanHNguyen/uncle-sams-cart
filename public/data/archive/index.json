@@ -1,8 +1,16 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-07-29T15:58:46.282536+00:00",
-  "latestDate": "2026-07-29",
+  "updatedAt": "2026-07-30T16:01:23.373044+00:00",
+  "latestDate": "2026-07-30",
   "receipts": [
+    {
+      "date": "2026-07-30",
+      "path": "/data/archive/2026-07-30.json",
+      "generatedAt": "2026-07-30T16:01:23.287262+00:00",
+      "activeRows": 0,
+      "itemCount": 0,
+      "titles": []
+    },
     {
       "date": "2026-07-29",
       "path": "/data/archive/2026-07-29.json",
@@ -1241,20 +1249,6 @@
         "The fish are on a federal meal plan",
         "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
         "Military Working Dog Kennel Hunter Army Airfield, Savannah, Georgia"
-      ]
-    },
-    {
-      "date": "2026-04-30",
-      "path": "/data/archive/2026-04-30.json",
-      "generatedAt": "2026-04-30T15:57:58.043383+00:00",
-      "activeRows": 77779,
-      "itemCount": 5,
-      "titles": [
-        "Barracks, but for dogs with jobs",
-        "Inflatable jet boat. Motor included. Democracy continues.",
-        "The deer and geese situation has reached procurement",
-        "The fish are on a federal meal plan",
-        "National forest seeks brave soul with pump truck"
       ]
     }
   ]
