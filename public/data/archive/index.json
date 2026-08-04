@@ -1,8 +1,16 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-08-03T16:42:07.620180+00:00",
-  "latestDate": "2026-08-03",
+  "updatedAt": "2026-08-04T16:23:45.644235+00:00",
+  "latestDate": "2026-08-04",
   "receipts": [
+    {
+      "date": "2026-08-04",
+      "path": "/data/archive/2026-08-04.json",
+      "generatedAt": "2026-08-04T16:23:45.556855+00:00",
+      "activeRows": 0,
+      "itemCount": 0,
+      "titles": []
+    },
     {
       "date": "2026-08-03",
       "path": "/data/archive/2026-08-03.json",
@@ -1204,20 +1212,6 @@
       "path": "/data/archive/2026-05-07.json",
       "generatedAt": "2026-05-07T16:19:36.363948+00:00",
       "activeRows": 80115,
-      "itemCount": 5,
-      "titles": [
-        "Inflatable jet boat. Motor included. Democracy continues.",
-        "The deer and geese situation has reached procurement",
-        "The fish are on a federal meal plan",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs"
-      ]
-    },
-    {
-      "date": "2026-05-06",
-      "path": "/data/archive/2026-05-06.json",
-      "generatedAt": "2026-05-06T16:12:45.974801+00:00",
-      "activeRows": 79031,
       "itemCount": 5,
       "titles": [
         "Inflatable jet boat. Motor included. Democracy continues.",
