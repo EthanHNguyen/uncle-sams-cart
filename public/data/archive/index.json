@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-08-09T14:54:28.080045+00:00",
-  "latestDate": "2026-08-09",
+  "updatedAt": "2026-08-10T15:20:02.811764+00:00",
+  "latestDate": "2026-08-10",
   "receipts": [
+    {
+      "date": "2026-08-10",
+      "path": "/data/archive/2026-08-10.json",
+      "generatedAt": "2026-08-10T15:18:31.595102+00:00",
+      "activeRows": 79957,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Pulled Chicken, Beef Crumbles & Pulled Pork for use in Domestic Food Assistance Programs",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "CANNED/POUCHED CHICKEN, CANNED BEEF, AND CANNED PORK PRODUCTS",
+        "Turnbull NWR Boundary Fence Maintenance"
+      ]
+    },
     {
       "date": "2026-08-09",
       "path": "/data/archive/2026-08-09.json",
@@ -1174,20 +1188,6 @@
       "path": "/data/archive/2026-05-12.json",
       "generatedAt": "2026-05-12T16:33:53.338946+00:00",
       "activeRows": 79563,
-      "itemCount": 5,
-      "titles": [
-        "The deer and geese situation has reached procurement",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
-        "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
-      ]
-    },
-    {
-      "date": "2026-05-11",
-      "path": "/data/archive/2026-05-11.json",
-      "generatedAt": "2026-05-11T16:49:11.078423+00:00",
-      "activeRows": 77754,
       "itemCount": 5,
       "titles": [
         "The deer and geese situation has reached procurement",
