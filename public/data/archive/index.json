@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-08-12T15:17:10.612685+00:00",
-  "latestDate": "2026-08-12",
+  "updatedAt": "2026-08-13T15:18:57.254332+00:00",
+  "latestDate": "2026-08-13",
   "receipts": [
+    {
+      "date": "2026-08-13",
+      "path": "/data/archive/2026-08-13.json",
+      "generatedAt": "2026-08-13T15:17:12.297905+00:00",
+      "activeRows": 82960,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Pulled Chicken, Beef Crumbles & Pulled Pork for use in Domestic Food Assistance Programs",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "CANNED/POUCHED CHICKEN, CANNED BEEF, AND CANNED PORK PRODUCTS",
+        "Turnbull NWR Boundary Fence Maintenance"
+      ]
+    },
     {
       "date": "2026-08-12",
       "path": "/data/archive/2026-08-12.json",
@@ -1181,20 +1195,6 @@
         "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
         "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs",
         "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
-      ]
-    },
-    {
-      "date": "2026-05-14",
-      "path": "/data/archive/2026-05-14.json",
-      "generatedAt": "2026-05-14T16:22:47.514432+00:00",
-      "activeRows": 82424,
-      "itemCount": 5,
-      "titles": [
-        "The deer and geese situation has reached procurement",
-        "Wild Horse Satelitte Adoption Center",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
-        "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs"
       ]
     }
   ]
