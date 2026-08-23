@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-08-22T14:42:34.775602+00:00",
-  "latestDate": "2026-08-22",
+  "updatedAt": "2026-08-23T14:44:10.920284+00:00",
+  "latestDate": "2026-08-23",
   "receipts": [
+    {
+      "date": "2026-08-23",
+      "path": "/data/archive/2026-08-23.json",
+      "generatedAt": "2026-08-23T14:42:34.888404+00:00",
+      "activeRows": 82921,
+      "itemCount": 5,
+      "titles": [
+        "B--WV-ESFO-BUMBLE BEE STUDY",
+        "Installation of Livestock Holding Pens and Chutes",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Pulled Chicken, Beef Crumbles & Pulled Pork for use in Domestic Food Assistance Programs",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
+      ]
+    },
     {
       "date": "2026-08-22",
       "path": "/data/archive/2026-08-22.json",
@@ -1181,20 +1195,6 @@
         "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
         "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
         "COOKED/CANNED MEATS: BEEF, PORK & CHICKEN PRODUCTS for use in Domestic Food Assistance Programs"
-      ]
-    },
-    {
-      "date": "2026-05-23",
-      "path": "/data/archive/2026-05-23.json",
-      "generatedAt": "2026-05-23T15:33:25.477679+00:00",
-      "activeRows": 82078,
-      "itemCount": 5,
-      "titles": [
-        "The deer and geese situation has reached procurement",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
-        "Cooked Meats: Pulled Chicken, Pulled Pork & Beef Crumbles for use in Domestic Food Assistance Programs",
-        "B--NOI - Bird monitoring at Duck and Chisik islands"
       ]
     }
   ]
