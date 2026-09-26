@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-09-25T18:41:37.304707+00:00",
-  "latestDate": "2026-09-25",
+  "updatedAt": "2026-09-26T17:48:03.997101+00:00",
+  "latestDate": "2026-09-26",
   "receipts": [
+    {
+      "date": "2026-09-26",
+      "path": "/data/archive/2026-09-26.json",
+      "generatedAt": "2026-09-26T17:46:30.807567+00:00",
+      "activeRows": 83694,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "OR-SHELDON-HART MTN NWR CX-VAULT TOILET",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "Horses and Mules for Yosemite National Park",
+        "Semi-Automatic Rifles for Feral Swine Program"
+      ]
+    },
     {
       "date": "2026-09-25",
       "path": "/data/archive/2026-09-25.json",
@@ -1174,20 +1188,6 @@
       "path": "/data/archive/2026-06-27.json",
       "generatedAt": "2026-06-27T15:40:52.064165+00:00",
       "activeRows": 80524,
-      "itemCount": 5,
-      "titles": [
-        "The deer and geese situation has reached procurement",
-        "WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
-        "Turnbull NWR Boundary Fence Maintenance"
-      ]
-    },
-    {
-      "date": "2026-06-26",
-      "path": "/data/archive/2026-06-26.json",
-      "generatedAt": "2026-06-26T16:29:26.829982+00:00",
-      "activeRows": 81516,
       "itemCount": 5,
       "titles": [
         "The deer and geese situation has reached procurement",
