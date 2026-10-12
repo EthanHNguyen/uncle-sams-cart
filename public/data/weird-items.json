@@ -1,8 +1,8 @@
 {
   "source": "sam.gov-bulk-csv",
-  "generatedAt": "2026-10-11T18:57:37.228786+00:00",
-  "totalRows": 71789,
-  "activeRows": 71789,
+  "generatedAt": "2026-10-12T22:09:23.687181+00:00",
+  "totalRows": 71125,
+  "activeRows": 71125,
   "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
   "items": [
     {
@@ -40,18 +40,18 @@
       "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
     },
     {
-      "id": "8e079ce2771144418d9d714f263669f7",
+      "id": "da1eaf04c05e4049a362519acd44521d",
       "title": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
       "officialTitle": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
       "agency": "Agriculture",
       "agencyFull": "AGRICULTURE, DEPARTMENT OF",
       "office": "USDA-FS, CSA NORTHWEST 2",
       "noticeType": "Solicitation",
-      "postedDate": "2026-04-28 19:09:36",
+      "postedDate": "2026-04-28 19:02:35",
       "responseDeadline": "2031-03-31T12:00:00-07:00",
       "placeOfPerformance": "USA",
       "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/8e079ce2771144418d9d714f263669f7/view",
+      "url": "https://sam.gov/workspace/contract/opp/da1eaf04c05e4049a362519acd44521d/view",
       "category": "Oddly Specific Object",
       "weirdnessScore": 177,
       "absurdityBadges": [
