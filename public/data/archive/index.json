@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-10-12T22:10:41.173457+00:00",
-  "latestDate": "2026-10-12",
+  "updatedAt": "2026-10-13T20:17:28.039113+00:00",
+  "latestDate": "2026-10-13",
   "receipts": [
+    {
+      "date": "2026-10-13",
+      "path": "/data/archive/2026-10-13.json",
+      "generatedAt": "2026-10-13T20:16:10.582450+00:00",
+      "activeRows": 71451,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "Horses and Mules for Yosemite National Park",
+        "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205",
+        "VAULT SEWAGE AND PORTABLE TOILET SERVICES"
+      ]
+    },
     {
       "date": "2026-10-12",
       "path": "/data/archive/2026-10-12.json",
@@ -1174,20 +1188,6 @@
       "path": "/data/archive/2026-07-14.json",
       "generatedAt": "2026-07-14T15:48:24.684919+00:00",
       "activeRows": 76549,
-      "itemCount": 5,
-      "titles": [
-        "The deer and geese situation has reached procurement",
-        "Install a bat-friendly wildlife gate located on the Olympic National Forest",
-        "WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
-      ]
-    },
-    {
-      "date": "2026-07-13",
-      "path": "/data/archive/2026-07-13.json",
-      "generatedAt": "2026-07-13T16:43:59.298283+00:00",
-      "activeRows": 75502,
       "itemCount": 5,
       "titles": [
         "The deer and geese situation has reached procurement",
