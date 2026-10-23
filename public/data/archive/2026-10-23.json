@@ -1,0 +1,174 @@
+{
+  "source": "sam.gov-bulk-csv",
+  "generatedAt": "2026-10-23T18:24:04.244746+00:00",
+  "totalRows": 72071,
+  "activeRows": 72071,
+  "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
+  "items": [
+    {
+      "id": "675ebfc884844542b3450dbb435ce103",
+      "title": "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+      "officialTitle": "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+      "agency": "Veterans Affairs",
+      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
+      "office": "NATIONAL CEMETERY ADMIN (36C786)",
+      "noticeType": "Sources Sought",
+      "postedDate": "2026-03-19 15:51:08",
+      "responseDeadline": "2026-03-27",
+      "placeOfPerformance": "Phoenix, AZ, USA",
+      "source": "SAM.gov",
+      "url": "https://sam.gov/workspace/contract/opp/675ebfc884844542b3450dbb435ce103/view",
+      "category": "Ceremony Department",
+      "weirdnessScore": 191,
+      "absurdityBadges": [
+        "Ceremony Department",
+        "Oddly Specific Object",
+        "Government Vibe"
+      ],
+      "matchedTerms": [
+        "ceremony",
+        "memorial",
+        "chairs",
+        "toilets",
+        "cemetery"
+      ],
+      "weirdnessReasons": [
+        "ceremony department signal: ceremony, memorial",
+        "oddly specific object signal: chairs, toilets",
+        "government vibe signal: cemetery"
+      ],
+      "plainEnglish": "It reads like ceremony department inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+    },
+    {
+      "id": "8e079ce2771144418d9d714f263669f7",
+      "title": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+      "officialTitle": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+      "agency": "Agriculture",
+      "agencyFull": "AGRICULTURE, DEPARTMENT OF",
+      "office": "USDA-FS, CSA NORTHWEST 2",
+      "noticeType": "Solicitation",
+      "postedDate": "2026-04-28 19:09:36",
+      "responseDeadline": "2031-03-31T12:00:00-07:00",
+      "placeOfPerformance": "USA",
+      "source": "SAM.gov",
+      "url": "https://sam.gov/workspace/contract/opp/8e079ce2771144418d9d714f263669f7/view",
+      "category": "Oddly Specific Object",
+      "weirdnessScore": 177,
+      "absurdityBadges": [
+        "Oddly Specific Object",
+        "Government Vibe"
+      ],
+      "matchedTerms": [
+        "toilets",
+        "waste",
+        "vault",
+        "forest"
+      ],
+      "weirdnessReasons": [
+        "oddly specific object signal: toilets, waste",
+        "government vibe signal: vault, forest",
+        "federal procurement language around a surprisingly concrete object"
+      ],
+      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+    },
+    {
+      "id": "0ea84a01759e43079a9f24ed858a8df5",
+      "title": "Horses and Mules for Yosemite National Park",
+      "officialTitle": "Horses and Mules for Yosemite National Park",
+      "agency": "Interior",
+      "agencyFull": "INTERIOR, DEPARTMENT OF THE",
+      "office": "PWR SF/SEA MABO(85000)",
+      "noticeType": "Combined Synopsis/Solicitation",
+      "postedDate": "2026-07-29 19:10:13",
+      "responseDeadline": "2026-08-13T17:00:00-07:00",
+      "placeOfPerformance": "Unknown",
+      "source": "SAM.gov",
+      "url": "https://sam.gov/workspace/contract/opp/0ea84a01759e43079a9f24ed858a8df5/view",
+      "category": "Animal Logistics",
+      "weirdnessScore": 166,
+      "absurdityBadges": [
+        "Animal Logistics",
+        "Government Vibe"
+      ],
+      "matchedTerms": [
+        "horses",
+        "mules",
+        "national park"
+      ],
+      "weirdnessReasons": [
+        "animal logistics signal: horses, mules",
+        "government vibe signal: national park",
+        "federal procurement language around a surprisingly concrete object"
+      ],
+      "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+    },
+    {
+      "id": "2df975620c8d41d8aa7f4b6767008bfd",
+      "title": "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205",
+      "officialTitle": "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205",
+      "agency": "Veterans Affairs",
+      "agencyFull": "VETERANS AFFAIRS, DEPARTMENT OF",
+      "office": "NATIONAL CEMETERY ADMIN (36C786)",
+      "noticeType": "Sources Sought",
+      "postedDate": "2026-06-11 09:45:52",
+      "responseDeadline": "2026-06-18",
+      "placeOfPerformance": "Honolulu, HI, USA",
+      "source": "SAM.gov",
+      "url": "https://sam.gov/workspace/contract/opp/2df975620c8d41d8aa7f4b6767008bfd/view",
+      "category": "Oddly Specific Object",
+      "weirdnessScore": 163,
+      "absurdityBadges": [
+        "Ceremony Department",
+        "Oddly Specific Object",
+        "Government Vibe"
+      ],
+      "matchedTerms": [
+        "memorial",
+        "trash",
+        "waste",
+        "cemetery"
+      ],
+      "weirdnessReasons": [
+        "ceremony department signal: memorial",
+        "oddly specific object signal: trash, waste",
+        "government vibe signal: cemetery"
+      ],
+      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+    },
+    {
+      "id": "fd5b8f6a003b4e5a99f2eac6aa41827e",
+      "title": "VAULT SEWAGE AND PORTABLE TOILET SERVICES",
+      "officialTitle": "VAULT SEWAGE AND PORTABLE TOILET SERVICES",
+      "agency": "Defense",
+      "agencyFull": "DEPT OF DEFENSE",
+      "office": "W2SD ENDIST BALTIMORE",
+      "noticeType": "Sources Sought",
+      "postedDate": "2026-08-28 13:51:45",
+      "responseDeadline": "2026-09-28T14:00:00-04:00",
+      "placeOfPerformance": "Unknown",
+      "source": "SAM.gov",
+      "url": "https://sam.gov/workspace/contract/opp/fd5b8f6a003b4e5a99f2eac6aa41827e/view",
+      "category": "Oddly Specific Object",
+      "weirdnessScore": 158,
+      "absurdityBadges": [
+        "Animal Logistics",
+        "Oddly Specific Object",
+        "Government Vibe"
+      ],
+      "matchedTerms": [
+        "elk",
+        "toilet",
+        "portable toilet",
+        "vault"
+      ],
+      "weirdnessReasons": [
+        "animal logistics signal: elk",
+        "oddly specific object signal: toilet, portable toilet",
+        "government vibe signal: vault"
+      ],
+      "plainEnglish": "It reads like oddly specific object inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
+    }
+  ],
+  "archiveDate": "2026-10-23",
+  "archivedAt": "2026-10-23T18:25:24.910292+00:00"
+}
