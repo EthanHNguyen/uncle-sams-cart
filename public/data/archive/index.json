@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-10-25T17:41:26.538554+00:00",
-  "latestDate": "2026-10-25",
+  "updatedAt": "2026-10-26T19:58:50.396894+00:00",
+  "latestDate": "2026-10-26",
   "receipts": [
+    {
+      "date": "2026-10-26",
+      "path": "/data/archive/2026-10-26.json",
+      "generatedAt": "2026-10-26T19:58:09.850433+00:00",
+      "activeRows": 70078,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Beef Crumbles, Pulled Pork, Chicken Pulled and Chicken Fajita Strips for use in Domestic Food Assistance Programs",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
+        "Horses and Mules for Yosemite National Park",
+        "Sources sought notice only. Trash Removal Services at the National Memorial Cemetery of the Pacific. -- S205"
+      ]
+    },
     {
       "date": "2026-10-25",
       "path": "/data/archive/2026-10-25.json",
@@ -1174,20 +1188,6 @@
       "path": "/data/archive/2026-07-27.json",
       "generatedAt": "2026-07-27T16:35:05.412104+00:00",
       "activeRows": 76848,
-      "itemCount": 5,
-      "titles": [
-        "Install a bat-friendly wildlife gate located on the Olympic National Forest",
-        "F--WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
-        "WHEATLAND ORC HOOF TRIMMING SERVICES (BASE + 4 YEA",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
-      ]
-    },
-    {
-      "date": "2026-07-26",
-      "path": "/data/archive/2026-07-26.json",
-      "generatedAt": "2026-07-26T15:31:50.640832+00:00",
-      "activeRows": 78710,
       "itemCount": 5,
       "titles": [
         "Install a bat-friendly wildlife gate located on the Olympic National Forest",
