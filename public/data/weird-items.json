@@ -1,8 +1,8 @@
 {
   "source": "sam.gov-bulk-csv",
-  "generatedAt": "2026-10-27T19:27:12.896760+00:00",
-  "totalRows": 70878,
-  "activeRows": 70878,
+  "generatedAt": "2026-10-28T19:36:34.446241+00:00",
+  "totalRows": 72060,
+  "activeRows": 72060,
   "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
   "items": [
     {
@@ -70,18 +70,18 @@
       "plainEnglish": "It reads like tactical snack inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
     },
     {
-      "id": "f4fa2d5bce444fa8aac661b33c9bf4a7",
+      "id": "66e384bfdc0b4e47a294f0fc15248ea5",
       "title": "Integrated Small Unmanned Aircraft Systems (SuAS) Detection & Bird/Wildlife Aircraft Strike Hazard (BASH) Radar System",
       "officialTitle": "Integrated Small Unmanned Aircraft Systems (SuAS) Detection & Bird/Wildlife Aircraft Strike Hazard (BASH) Radar System",
       "agency": "Defense",
       "agencyFull": "DEPT OF DEFENSE",
       "office": "FA3010 81 CONS CC",
       "noticeType": "Sources Sought",
-      "postedDate": "2026-10-26 14:29:16",
+      "postedDate": "2026-10-27 08:09:44",
       "responseDeadline": "2026-11-02T15:00:00-06:00",
       "placeOfPerformance": "Biloxi, MS, USA",
       "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/f4fa2d5bce444fa8aac661b33c9bf4a7/view",
+      "url": "https://sam.gov/workspace/contract/opp/66e384bfdc0b4e47a294f0fc15248ea5/view",
       "category": "Animal Logistics",
       "weirdnessScore": 182,
       "absurdityBadges": [
@@ -101,18 +101,18 @@
       "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
     },
     {
-      "id": "da1eaf04c05e4049a362519acd44521d",
+      "id": "8e079ce2771144418d9d714f263669f7",
       "title": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
       "officialTitle": "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
       "agency": "Agriculture",
       "agencyFull": "AGRICULTURE, DEPARTMENT OF",
       "office": "USDA-FS, CSA NORTHWEST 2",
       "noticeType": "Solicitation",
-      "postedDate": "2026-04-28 19:02:35",
+      "postedDate": "2026-04-28 19:09:36",
       "responseDeadline": "2031-03-31T12:00:00-07:00",
       "placeOfPerformance": "USA",
       "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/da1eaf04c05e4049a362519acd44521d/view",
+      "url": "https://sam.gov/workspace/contract/opp/8e079ce2771144418d9d714f263669f7/view",
       "category": "Oddly Specific Object",
       "weirdnessScore": 177,
       "absurdityBadges": [
