@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-11-04T20:51:44.611034+00:00",
-  "latestDate": "2026-11-04",
+  "updatedAt": "2026-11-05T21:07:34.990876+00:00",
+  "latestDate": "2026-11-05",
   "receipts": [
+    {
+      "date": "2026-11-05",
+      "path": "/data/archive/2026-11-05.json",
+      "generatedAt": "2026-11-05T21:06:36.680839+00:00",
+      "activeRows": 70965,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Beef Crumbles, Pulled Pork, Chicken Pulled and Chicken Fajita Strips for use in Domestic Food Assistance Programs",
+        "Integrated Small Unmanned Aircraft Systems (SuAS) Detection & Bird/Wildlife Aircraft Strike Hazard (BASH) Radar System",
+        "CANNED CHICKEN, BEEF, & PORK & POUCHED CHICKEN PRODUCTS",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
+      ]
+    },
     {
       "date": "2026-11-04",
       "path": "/data/archive/2026-11-04.json",
@@ -1227,14 +1241,6 @@
       "date": "2026-08-07",
       "path": "/data/archive/2026-08-07.json",
       "generatedAt": "2026-08-07T15:10:03.702601+00:00",
-      "activeRows": 0,
-      "itemCount": 0,
-      "titles": []
-    },
-    {
-      "date": "2026-08-05",
-      "path": "/data/archive/2026-08-05.json",
-      "generatedAt": "2026-08-05T16:12:24.948419+00:00",
       "activeRows": 0,
       "itemCount": 0,
       "titles": []
