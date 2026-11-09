@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-11-08T18:53:09.759387+00:00",
-  "latestDate": "2026-11-08",
+  "updatedAt": "2026-11-09T23:29:09.427636+00:00",
+  "latestDate": "2026-11-09",
   "receipts": [
+    {
+      "date": "2026-11-09",
+      "path": "/data/archive/2026-11-09.json",
+      "generatedAt": "2026-11-09T23:27:47.320749+00:00",
+      "activeRows": 70329,
+      "itemCount": 5,
+      "titles": [
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "Cooked Meats: Beef Crumbles, Pulled Pork, Chicken Pulled and Chicken Fajita Strips for use in Domestic Food Assistance Programs",
+        "Integrated Small Unmanned Aircraft Systems (SuAS) Detection & Bird/Wildlife Aircraft Strike Hazard (BASH) Radar System",
+        "CANNED CHICKEN, BEEF, & PORK & POUCHED CHICKEN PRODUCTS",
+        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
+      ]
+    },
     {
       "date": "2026-11-08",
       "path": "/data/archive/2026-11-08.json",
@@ -1240,20 +1254,6 @@
       "path": "/data/archive/2026-08-11.json",
       "generatedAt": "2026-08-11T15:17:23.406516+00:00",
       "activeRows": 80264,
-      "itemCount": 5,
-      "titles": [
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "Cooked Meats: Pulled Chicken, Beef Crumbles & Pulled Pork for use in Domestic Food Assistance Programs",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
-        "CANNED/POUCHED CHICKEN, CANNED BEEF, AND CANNED PORK PRODUCTS",
-        "Turnbull NWR Boundary Fence Maintenance"
-      ]
-    },
-    {
-      "date": "2026-08-10",
-      "path": "/data/archive/2026-08-10.json",
-      "generatedAt": "2026-08-10T15:18:31.595102+00:00",
-      "activeRows": 79957,
       "itemCount": 5,
       "titles": [
         "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
