@@ -1,8 +1,8 @@
 {
   "source": "sam.gov-bulk-csv",
-  "generatedAt": "2026-11-20T21:51:57.391397+00:00",
-  "totalRows": 73887,
-  "activeRows": 73887,
+  "generatedAt": "2026-11-21T20:33:50.209389+00:00",
+  "totalRows": 73386,
+  "activeRows": 73386,
   "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
   "items": [
     {
@@ -38,18 +38,18 @@
       "plainEnglish": "It reads like animal logistics inside a federal procurement record. It may be perfectly reasonable — the weird part is seeing it as an official line item."
     },
     {
-      "id": "327fe00aae024831b35613efe7466224",
+      "id": "562e90acba7c4f07b91ea6fe1e2a447e",
       "title": "Shawnee National Forest Wildlife and Rodent Shield Installation",
       "officialTitle": "Shawnee National Forest Wildlife and Rodent Shield Installation",
       "agency": "Agriculture",
       "agencyFull": "AGRICULTURE, DEPARTMENT OF",
       "office": "USDA-FS, CSA EAST 6",
       "noticeType": "Solicitation",
-      "postedDate": "2026-11-19 11:34:04",
+      "postedDate": "2026-11-20 09:46:31",
       "responseDeadline": "2026-11-30T16:00:00-05:00",
       "placeOfPerformance": "Vienna, IL, USA",
       "source": "SAM.gov",
-      "url": "https://sam.gov/workspace/contract/opp/327fe00aae024831b35613efe7466224/view",
+      "url": "https://sam.gov/workspace/contract/opp/562e90acba7c4f07b91ea6fe1e2a447e/view",
       "category": "Animal Logistics",
       "weirdnessScore": 204,
       "absurdityBadges": [
