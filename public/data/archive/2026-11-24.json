@@ -1,8 +1,8 @@
 {
   "source": "sam.gov-bulk-csv",
-  "generatedAt": "2026-11-24T01:42:02.040261+00:00",
-  "totalRows": 71439,
-  "activeRows": 71439,
+  "generatedAt": "2026-11-24T23:30:34.990002+00:00",
+  "totalRows": 72807,
+  "activeRows": 72807,
   "method": "curated-top-five-from-deterministic-keyword-scoring-no-llm-no-prices",
   "items": [
     {
@@ -166,5 +166,5 @@
     }
   ],
   "archiveDate": "2026-11-24",
-  "archivedAt": "2026-11-24T01:42:47.052020+00:00"
+  "archivedAt": "2026-11-24T23:31:28.785378+00:00"
 }
