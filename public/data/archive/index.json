@@ -1,8 +1,22 @@
 {
   "source": "uncle-sams-cart-archive",
-  "updatedAt": "2026-11-24T23:31:28.785860+00:00",
-  "latestDate": "2026-11-24",
+  "updatedAt": "2026-11-25T23:09:33.239605+00:00",
+  "latestDate": "2026-11-25",
   "receipts": [
+    {
+      "date": "2026-11-25",
+      "path": "/data/archive/2026-11-25.json",
+      "generatedAt": "2026-11-25T23:08:07.717821+00:00",
+      "activeRows": 73086,
+      "itemCount": 5,
+      "titles": [
+        "F--WI-IRON RIV NFH-BROOK TROUT SPAWNING AND EGG PRODUCTION SUPPORT SERVICES",
+        "Modoc National Forest Veterinary Services",
+        "Shawnee National Forest Wildlife and Rodent Shield Installation",
+        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
+        "CANNED CHICKEN, BEEF, & PORK & POUCHED CHICKEN PRODUCTS"
+      ]
+    },
     {
       "date": "2026-11-24",
       "path": "/data/archive/2026-11-24.json",
@@ -1247,20 +1261,6 @@
         "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
         "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest",
         "CANNED/POUCHED CHICKEN, CANNED BEEF, AND CANNED PORK PRODUCTS"
-      ]
-    },
-    {
-      "date": "2026-08-26",
-      "path": "/data/archive/2026-08-26.json",
-      "generatedAt": "2026-08-26T15:54:41.227995+00:00",
-      "activeRows": 85224,
-      "itemCount": 5,
-      "titles": [
-        "B--WV-ESFO-BUMBLE BEE STUDY",
-        "Installation of Livestock Holding Pens and Chutes",
-        "National Cemetery Administration - Memorial Day Rentals for Ceremony - National Memorial Cemetery of AZ -- W071",
-        "Cooked Meats: Pulled Chicken, Beef Crumbles & Pulled Pork for use in Domestic Food Assistance Programs",
-        "BPA Setup - Waste Removal and disposal from Vault toilets & Septic tanks at various sites for the Region 6 National Forest"
       ]
     }
   ]
